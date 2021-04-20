@@ -1,6 +1,6 @@
 export function getStrapiUrl(path = ""){
     return `${
-        process.env.BACKEND_BASE_URL || "http://localhost:1337"
+        process.env.BACKEND_BASE_URL || "https://api.nndym.org"
     }${path}`;
 }
 
