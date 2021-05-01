@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Menu from '../components/Menu'
 
-import {SubTitle} from '../styles/Global'
+import LoadingScreen from '../components/Loading'
 
 
 const Title = styled.h1`
@@ -22,6 +22,7 @@ const Background = styled.div`
 export default function Home() {
   return (
     <>
+      <LoadingScreen/>
       <Menu/>
       <Background>
         hello

@@ -41,6 +41,8 @@ export const MenuButton = styled.div`
     width: 90px;
     transition: 0.5s;
 
+    z-index:45;
+
     &::before{
 		transition: all 0.55s cubic-bezier(0.65, 0.05, 0.36, 1);
 		content: '';
@@ -81,6 +83,8 @@ export const Menu = styled.div`
     height: 100%;
     position: fixed;
     padding:50px;
+
+    z-index:50;
 
     @media(max-height: 375px) {
         padding:10px 50px;
@@ -135,23 +139,24 @@ export const Main = styled.div`
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 
-    @media(max-width: 768px) {
+    @media(max-width: 812px) {
         grid-template-columns: 1fr 1fr;
 
         height: 70vh;
-        overflow: scroll;
+        overflow: auto;
 
     }
 
     @media(max-height: 500px) {
         
-        overflow: scroll;
+        overflow: auto;
     }
 
     @media(max-width: 441px) {
         padding-top:25px;
         height: 70vh;
         grid-template-columns: 1fr;
+        overflow: auto;
     }
 `;
 

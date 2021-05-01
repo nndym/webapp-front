@@ -4,6 +4,10 @@ import Link from 'next/link'
 
 const NavListOne = [
     {
+        link: '/',
+        title: "Home",
+    },
+    {
         link: '/about-us',
         title: "About Us",
     },
