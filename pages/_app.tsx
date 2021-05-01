@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import App from "next/app";
 import Head from "next/head";
 import { fetchAPI } from '../lib/api';
@@ -12,13 +11,15 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    height:9000px
   }
 `
 
 const theme = {
   colors: {
-    primary: '#00ABDF',
-    secondary: '#DF3400',
+    primary: '#0077FF',
+    secondary: '#0800FF',
   },
 }
 
@@ -33,6 +34,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700&display=swap" rel="stylesheet"></link>
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></link>
       </Head>
       <GlobalStyle/>
       <ThemeProvider theme={theme}>
