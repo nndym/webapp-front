@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MenuButton, Menu, Header, Logo, CloseButton, Main, NavSection, StyledLink } from './styles';
+import { MenuButton, Menu, Header, Logo, CloseButton, Main, NavSection } from './styles';
 import Link from 'next/link'
 
 const NavListOne = [
@@ -10,10 +10,6 @@ const NavListOne = [
     {
         link: '/events',
         title: "Events",
-    },
-    {
-        link: '/account',
-        title: "Account",
     },
     {
         link: '/contact-us',
@@ -196,18 +192,30 @@ function index() {
                     </Header>
                     <Main>
                         <NavSection>
-                            {NavListOne.map((item,key)=>(
-                                <Link key={key} passHref href={item.link}>
+                            <span></span>
+                            {NavListTwo.map((item,key)=>(
+                                <Link key={key} href={item.link}>
                                     {item.title}
                                 </Link>
                             ))}
                         </NavSection>
                         <NavSection>
-                            {NavListTwo.map((item,key)=>(
-                                <Link key={key} passHref href={item.link}>
+                            <span></span>
+                            {NavListOne.map((item,key)=>(
+                                <Link key={key} href={item.link}>
                                     {item.title}
                                 </Link>
                             ))}
+                            
+                        </NavSection>
+                        <NavSection>
+                            <span></span>
+                            <Link href="/login">
+                                Login
+                            </Link>
+                            <Link href="/register">
+                                Register
+                            </Link>
                         </NavSection>
                     </Main>
                 </div>

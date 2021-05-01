@@ -92,6 +92,11 @@ export const Header = styled.div`
     align-items: center;
     padding-top:30px;
     justify-content: space-between;
+
+    @media(max-height: 500px) {
+        
+        padding-top:0px;
+    }
 `;
 
 export const CloseButton = styled.a`
@@ -139,12 +144,13 @@ export const Main = styled.div`
     }
 
     @media(max-height: 500px) {
-        height: 70vh;
+        
         overflow: scroll;
     }
 
     @media(max-width: 441px) {
         padding-top:25px;
+        height: 70vh;
         grid-template-columns: 1fr;
     }
 `;
@@ -154,8 +160,21 @@ export const NavSection = styled.nav`
     padding-top:30px;
     flex-direction: column;
 
+    
+
+    span {
+        display:none;
+        width:100%;
+        height: 2px;
+        background: ${({ theme }) => theme.colors.primary};
+    }
+
     @media(max-width: 441px) {
         padding-top:0px;
+
+        span {
+            display:block;
+        }
     }
 
     a {
@@ -173,8 +192,4 @@ export const NavSection = styled.nav`
             border-left: ${({ theme }) => theme.colors.primary} 8px solid;
         }
     }
-`;
-
-export const StyledLink = styled.a`
-        
 `;
