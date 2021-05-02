@@ -1,76 +1,8 @@
 import React from 'react'
-
 import Menu from '../components/Menu'
 import LoadingScreen from '../components/Loading'
-
 import styled from 'styled-components'
-
-const Main = styled.div`
-    background: rgb(85,198,234);
-    background: linear-gradient(45deg, rgba(85,198,234,1) 0%, rgba(20,138,255,1) 100%);
-    height: 100vh;
-    width: 100%;
-`;
-
-const Container = styled.div`
-    max-width: 1200px;
-    margin: auto;
-
-    @media(max-width: 1230px) {
-        padding:30px;
-        padding-bottom:0px;
-    }
-`;
-
-const Header = styled.div`
-
-    padding-top:200px;
-
-    color:white;
-
-    h5{
-        margin:0;
-        font-size: 1rem;
-        margin-bottom:10px;
-        font-weight: 300;
-    }
-
-    h2{
-        margin: 0;
-        font-size: 4rem;
-        line-height: 60px;
-    }
-
-    @media(max-width: 660px) {
-
-        padding-top:180px;
-
-        h2 {
-            font-size: 3rem;
-            line-height: 50px;
-        }
-    }
-
-    @media(max-width: 360px) {
-
-        padding-top:140px;
-
-        h2 {
-            font-size: 2rem;
-            line-height: 40px;
-        }
-    }
-
-    @media(max-height: 420px) {
-
-        padding-top:120px;
-
-        h2 {
-            font-size: 2rem;
-            line-height: 40px;
-        }
-    }
-`;
+import { Background, Container, Header } from '../styles/Global';
 
 const ClipArt = styled.div`
     width: 100%;
@@ -126,7 +58,7 @@ export default function login() {
         <>
             <LoadingScreen/>
             <Menu/>
-            <Main>
+            <Background>
                 <Container>
                     <Header>
                         <h5>Login</h5>
@@ -137,23 +69,12 @@ export default function login() {
                 <Container>
                     <Border>
                         <Content>
-                            <div>
-                                <div>
-                                    <label>Email</label>
-                                    <input />
-                                </div>
-                                <div>
-                                    <label>Password</label>
-                                    <input />
-                                </div>
-                            </div>
-                            <div>
-                                Sign in with Service here
-                            </div>
+                            <h2>This feature is not currently available in your area, please check back again later!</h2>
                         </Content>
                     </Border>
                 </Container>
-            </Main>   
+            </Background>
+            
         </>
     )
 }
