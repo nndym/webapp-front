@@ -22,6 +22,16 @@ export const slideDown = keyframes`
   }
 `;
 
+export const fadeOut = keyframes`
+  0% {
+    opacity:1;
+  }
+
+  100% {
+    opacity:0;
+  }
+`;
+
 export const slideOut = keyframes`
   from {
     left:0
@@ -40,18 +50,23 @@ export const MenuButton = styled.div`
     cursor: pointer;
     width: 90px;
     transition: 0.5s;
+    border-bottom: ${({ theme }) => theme.colors.secondary} 4px solid;
+    border-top: ${({ theme }) => theme.colors.secondary} 4px solid;
+    border-left: ${({ theme }) => theme.colors.secondary} 4px solid;
+    border-radius: 15px 0px 0px 15px;
 
     z-index:45;
 
     &::before{
 		transition: all 0.55s cubic-bezier(0.65, 0.05, 0.36, 1);
 		content: '';
-		width:  3px;
-		height: 100%;
+		width:  0px;
+		height: calc(100% - 8px);
 		background: ${({ theme }) => theme.colors.secondary};
 		position: absolute;
 		top: 0;
 		right: 0;
+        border: ${({ theme }) => theme.colors.secondary} 4px solid;
 	}
 
     &:hover {
@@ -60,7 +75,9 @@ export const MenuButton = styled.div`
 
         &::before{
 			background: ${({ theme }) => theme.colors.secondary};
-			width: 100%;
+			width: calc(100% - 8px);
+            border-radius: 8px 0px 0px 8px;
+            
 		}
 
         
@@ -83,7 +100,6 @@ export const Menu = styled.div`
     height: 100%;
     position: fixed;
     padding:50px;
-
     z-index:50;
 
     @media(max-height: 375px) {
@@ -92,10 +108,12 @@ export const Menu = styled.div`
 `;
 
 export const Header = styled.div`
-    display:flex;
+    display: flex;
     align-items: center;
     padding-top:30px;
     justify-content: space-between;
+
+    animation: ${props => props.hide ? null : fadeOut} 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) ;
 
     @media(max-height: 500px) {
         
@@ -138,6 +156,7 @@ export const Logo = styled.svg`
 export const Main = styled.div`
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    animation: ${props => props.hide ? null : fadeOut} 0.8s cubic-bezier(0.65, 0.05, 0.36, 1) ;
 
     @media(max-width: 812px) {
         grid-template-columns: 1fr 1fr;

@@ -14,9 +14,38 @@ const ClipArt = styled.div`
     clip-path: polygon(0% 19%, 17% 3%, 43% 38%, 60% 33%, 79% 47%, 100% 14%, 100% 100%, 0 100%);
 `;
 
-const Absolute = styled.div`
-    position: absolute;
-    margin-top: 20px;
+const Relative = styled.div`
+    position: relative;
+    margin: 80px 0px;
+
+    @media(max-width: 1230px) {
+        margin: 60px 0px;
+    }
+
+    @media(max-width: 650px) {
+        margin: 40px 0px;
+    }
+
+    @media(max-width: 400px) {
+        margin: 20px 0px;
+    }
+`;
+
+const CoverImage = styled.div`
+    width:100%;
+    height: 500px;
+
+    @media(max-width: 1230px) {
+        height: 450px;
+    }
+
+    @media(max-width: 650px) {
+        height: 300px;
+    }
+
+    @media(max-width: 400px) {
+        height: 250px;
+    }
 `;
 
 
@@ -34,15 +63,16 @@ function about() {
                 </Container>
                 <ClipArt/>
                 <Container>
-                    <Absolute>
-                        <Image
-                            src="/v1619918495/DSC_0672_cpjhjw.jpg"
-                            alt="Picture of the author"
-                            width="1200"
-                            height="800"
-                            layout="responsive"
-                        />
-                    </Absolute>
+                    <Relative>
+                        <CoverImage>
+                            <Image
+                                src="/v1619918495/DSC_0672_cpjhjw.jpg"
+                                alt="Picture of the author"
+                                layout="fill"
+                                objectFit="cover"
+                            />
+                        </CoverImage>
+                    </Relative>
                 </Container>
             </Background>
         </>

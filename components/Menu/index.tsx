@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { MenuButton, Menu, Header, Logo, CloseButton, Main, NavSection } from './styles';
-import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router';
 
 const NavListOne = [
     {
@@ -56,10 +56,42 @@ const NavListTwo = [
     },
 ]
 
+const CustomLink = ({children, href, animate}) => {
+    const router = useRouter();
+
+    return (
+        <a
+        
+        href="#"
+        onClick={(e)=>{
+            e.preventDefault();
+
+            let location = window.location.href;
+            location = location.replace(window.location.origin, "")
+
+            console.log(location, href);
+
+            if(location === href || location === href +"/"){
+                // Why you clicking the same link you are on...
+            } else {
+                animate();
+                setTimeout(() => {
+                    router.push(href);
+                }, 100);
+            }
+            
+        }}
+        >
+            {children}
+        </a>
+    )
+}
+
 function index() {
 
     const [open, setOpen] = useState(false)
     const [hideDelay, setHideDelay] = useState(false)
+    const [animateOut, setAnimateOut] = useState(false)
 
     const handleClose = () => {
         setOpen(false);
@@ -81,7 +113,7 @@ function index() {
             </MenuButton>
             <Menu hideDeply={hideDelay} show={open}>
                 <div style={{width:"100%"}}>
-                    <Header>
+                    <Header hide={!animateOut}>
                         <a href="/">
                             <Logo version="1.0" xmlns="http://www.w3.org/2000/svg"
                     width="485.000000pt" height="515.000000pt" viewBox="0 0 485.000000 515.000000"
@@ -194,32 +226,32 @@ function index() {
                         </a>
                         <CloseButton onClick={handleClose}><i className="las la-times"></i></CloseButton>
                     </Header>
-                    <Main>
+                    <Main hide={!animateOut}>
                         <NavSection>
                             <span></span>
                             {NavListTwo.map((item,key)=>(
-                                <Link key={key} href={item.link}>
+                                <CustomLink animate={() => setAnimateOut(true)} key={key} href={item.link}>
                                     {item.title}
-                                </Link>
+                                </CustomLink>
                             ))}
                         </NavSection>
                         <NavSection>
                             <span></span>
                             {NavListOne.map((item,key)=>(
-                                <Link key={key} href={item.link}>
+                                <CustomLink animate={() => setAnimateOut(true)} key={key} href={item.link}>
                                     {item.title}
-                                </Link>
+                                </CustomLink>
                             ))}
                             
                         </NavSection>
                         <NavSection>
                             <span></span>
-                            <Link href="/login">
+                            <CustomLink animate={() => setAnimateOut(true)} href="/login">
                                 Login
-                            </Link>
-                            <Link href="/register">
+                            </CustomLink>
+                            <CustomLink animate={() => setAnimateOut(true)} href="/register">
                                 Register
-                            </Link>
+                            </CustomLink>
                         </NavSection>
                     </Main>
                 </div>
