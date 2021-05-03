@@ -1,9 +1,5 @@
 import styled from 'styled-components'
-
 import Menu from '../components/Menu'
-
-import LoadingScreen from '../components/Loading'
-
 
 const Title = styled.h1`
   font-size: 50px;
@@ -22,7 +18,6 @@ const Background = styled.div`
 export default function Home() {
   return (
     <>
-      <LoadingScreen/>
       <Menu/>
       <Background>
         hello
