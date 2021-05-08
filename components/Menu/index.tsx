@@ -1,13 +1,15 @@
 import { motion, useCycle } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components'
+import Navigation from './Navigation';
+import TopNav from './TopNav';
 
 const Button = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
   position: fixed;
-  top: 40px;
+  top: 45px;
   padding: 20px;
   right: 0px;
   width: 120px;
@@ -35,6 +37,7 @@ const Background = styled.div`
     left: 100%;
     background:white;
     z-index:50;
+    overflow: auto;
 `;
 
 const Path = props => (
@@ -60,6 +63,8 @@ function Menu() {
                 <Button 
                     as={motion.button} 
                     onClick={()=>toggleOpen()}
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
                     whileHover={{ 
                         scale: 1.1
                     }}
@@ -96,11 +101,26 @@ function Menu() {
             >
                 <Background as={motion.div}
                     variants={{
-                        closed: { left: '100%' },
-                        open: { left: '0%' }
+                        closed: { 
+                            left: '100%', 
+                            transition: { 
+                                duration: 0.8, 
+                                ease: [0.65, 0.05, 0.36, 1],
+                                delay: 0.5
+                            } 
+                        },
+                        open: { 
+                            left: '0%',
+                            transition: { 
+                                duration: 0.8, 
+                                ease: [0.65, 0.05, 0.36, 1] 
+                            }
+                        }
                     }}
-                    transition={{ duration: 0.8, ease: [0.65, 0.05, 0.36, 1] }}
+                    //transition={{ duration: 0.8, ease: [0.65, 0.05, 0.36, 1] }}
                 >
+                    <TopNav/>
+                    <Navigation/>
                 </Background>
             </motion.div>
         </>

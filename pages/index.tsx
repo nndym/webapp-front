@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Menu from '../components/Menu'
+import Logo from '../components/Logo'
 
 const Title = styled.h1`
   font-size: 50px;
@@ -18,6 +19,7 @@ const Background = styled.div`
 export default function Home() {
   return (
     <>
+      <Logo/>
       <Menu/>
       <Background>
         hello
