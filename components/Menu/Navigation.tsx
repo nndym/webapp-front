@@ -2,11 +2,15 @@ import React from 'react'
 import { motion } from "framer-motion";
 import { MenuItem } from './MenuItem';
 import styled from 'styled-components'
+import { NavListCat } from '../../static_data/menu';
 
 
-const NavigationList = styled.div`
+const Holder = styled.div`
     padding-top: 0px;
     margin: 25px 65px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 25px;
 
     @media (max-width: 900px) {
         margin: 25px 55px;
@@ -14,6 +18,23 @@ const NavigationList = styled.div`
 
     @media (max-width: 712px) {
         margin: 25px 25px;
+        grid-gap: 15px;
+        grid-template-columns: 1fr;
+
+    }
+`
+
+const NavigationList = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 712px) {
+
     }
 `
 
@@ -26,18 +47,18 @@ const variants = {
     }
   };
   
-
-  const itemIds = [0, 1, 2, 3, 4, 1];
-
 function Navigation() {
     return (
-        <NavigationList as={motion.div} variants={variants}>
-            <div>
-                {itemIds.map((i, index) => (
-                    <MenuItem i={i} key={index} />
+        <Holder>
+            <NavigationList as={motion.div} variants={variants}>
+                {NavListCat.map((i, index) => (
+                    <MenuItem item={i} key={index} />
                 ))}
+            </NavigationList>
+            <div>
+                <h1>Member perks</h1>
             </div>
-        </NavigationList>
+        </Holder>
     )
 }
 
