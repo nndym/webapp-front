@@ -26,19 +26,22 @@ const LinkA = styled.a`
 
     &:hover {
         &::before{
-			background: ${({ theme }) => theme.colors.secondary};
-			width: 100%;
-		}
-    }
-
-    @media (max-width: 900px) {
-        &::before{
-            height: 0px;
+          background: ${({ theme }) => theme.colors.secondary};
+          width: 100%;
         }
     }
 
+
     @media (max-width: 712px) {
         display: block;
+
+        margin: 10px 0px;
+
+        &:hover {
+          &::before{
+            width: 10%;
+          }
+        }
     }
 
 `;
