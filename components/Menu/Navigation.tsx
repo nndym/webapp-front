@@ -32,11 +32,53 @@ const NavigationList = styled.div`
     @media (max-width: 1200px) {
         grid-template-columns: 1fr;
     }
+`
+
+const Member = styled.div`
+
+    background: linear-gradient(287deg,#ffffff 0%,#f3f3f3 100%);
+    border-radius: 10px;
+
+    padding: 40px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    
+    @media (max-width: 1200px) {
+        padding: 30px;
+    }
 
     @media (max-width: 712px) {
+        padding: 20px;
+    }
 
+    h2 {
+        color: ${({ theme }) => theme.colors.primary};
+        font-weight: 800;
+        font-size: 38px;
+        margin:0;
+        margin-bottom: 10px;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+        margin:0;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    h4 {
+        font-weight: 800;
+        font-size: 26px;
+        margin:0;
+        margin-bottom: 10px;
     }
 `
+
+
 
 const variants = {
     open: {
@@ -55,12 +97,39 @@ function Navigation() {
                     <MenuItem item={i} key={index} />
                 ))}
             </NavigationList>
-            <div>
-                <h1>Member perks</h1>
-            </div>
+            <Member 
+                as={motion.div} 
+                variants={{
+                    open:{
+                        opacity: 1,
+                        transition: {
+                            delay: 1,
+                        },
+                    },
+                    closed: {
+                        opacity: 0,
+                    }
+                }}
+            >
+                <h2>Are you a Member?</h2>
+                <ul>
+                    <li>Exclusive Content</li>
+                    <li>Early Sign Up's</li>
+                    <li>Seva Oppturnites</li>
+                    <li>Exclusive Events</li>
+                </ul>
+                <h4>100% Free</h4>
+                <div>
+                    <a>Sign In</a>
+                    <a>Register</a>
+                    <a>Learn more</a>
+                </div>
+            </Member>
         </Holder>
     )
 }
+
+
 
 
 export default Navigation

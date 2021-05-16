@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    primary: '#0077FF',
+    primary: '#129CDF',
     secondary: '#0800FF',
   },
 }
