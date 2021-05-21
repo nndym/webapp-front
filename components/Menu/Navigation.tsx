@@ -102,12 +102,14 @@ function Navigation() {
                 variants={{
                     open:{
                         opacity: 1,
+                        scale: 1,
                         transition: {
-                            delay: 1,
+                            delay: 0.7,
                         },
                     },
                     closed: {
                         opacity: 0,
+                        scale: 0.8,
                     }
                 }}
             >
