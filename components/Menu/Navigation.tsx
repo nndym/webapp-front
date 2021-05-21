@@ -69,6 +69,10 @@ const Member = styled.div`
         margin:0;
         font-size: 20px;
         margin-bottom: 10px;
+
+        li {
+            margin-top: 6px;
+        }
     }
 
     h4 {
@@ -80,6 +84,17 @@ const Member = styled.div`
 `
 
 
+const ButtonHolder = styled.div`
+    display: inline-flex;
+    gap: 10px;
+    width: 100%;
+    justify-content: flex-start;
+
+    @media (max-width: 930px) {
+        flex-direction: column;
+
+    }
+`
 
 const variants = {
     open: {
@@ -122,11 +137,11 @@ function Navigation() {
                     <li>Exclusive Events</li>
                 </ul>
                 <h4>100% Free</h4>
-                <div>
-                    <Button>Sign In</Button>
-                    <a>Register</a>
-                    <a>Learn more</a>
-                </div>
+                <ButtonHolder>
+                    <Button primary href="/login">Login</Button>
+                    <Button primary href="/register">Register</Button>
+                    <Button href="/account">Learn More</Button>
+                </ButtonHolder>
             </Member>
         </Holder>
     )

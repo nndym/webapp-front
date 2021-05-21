@@ -27,6 +27,7 @@ const Item = styled.div`
     display: flex;
     border-radius: 4px;
     align-items: center;
+    height: 58%;
 `;
 
 const MyLink = styled.a`
