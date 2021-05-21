@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MenuItem } from './MenuItem';
 import styled from 'styled-components'
 import { NavListCat } from '../../static_data/menu';
+import Button from '../Input/Button';
 
 
 const Holder = styled.div`
@@ -16,7 +17,7 @@ const Holder = styled.div`
         margin: 25px 55px;
     }
 
-    @media (max-width: 712px) {
+    @media (max-width: 750px) {
         margin: 25px 25px;
         grid-gap: 15px;
         grid-template-columns: 1fr;
@@ -50,7 +51,7 @@ const Member = styled.div`
         padding: 30px;
     }
 
-    @media (max-width: 712px) {
+    @media (max-width: 750px) {
         padding: 20px;
     }
 
@@ -109,7 +110,7 @@ function Navigation() {
                     },
                     closed: {
                         opacity: 0,
-                        scale: 0.8,
+                        scale: 0.2,
                     }
                 }}
             >
@@ -122,7 +123,7 @@ function Navigation() {
                 </ul>
                 <h4>100% Free</h4>
                 <div>
-                    <a>Sign In</a>
+                    <Button>Sign In</Button>
                     <a>Register</a>
                     <a>Learn more</a>
                 </div>

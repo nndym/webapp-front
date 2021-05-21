@@ -48,7 +48,7 @@ const TopNavHolder = styled.div`
         margin: 138px 55px 10px;
     }
 
-    @media (max-width: 712px) {
+    @media (max-width: 750px) {
         margin: 138px 25px 10px;
     }
 `;
