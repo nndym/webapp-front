@@ -19,6 +19,10 @@ export const NavListMain = [
         link: '/donate',
         title: "Donate",
     },
+    {
+        link: '/legal',
+        title: "Legal",
+    },
 ]
 
 export const NavListCat = [

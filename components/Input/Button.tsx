@@ -13,7 +13,6 @@ const Main = styled.a`
 
     @media (max-width: 930px) {
         text-align: center;
-
     }
     
 `

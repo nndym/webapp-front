@@ -2,34 +2,8 @@ import { motion } from 'framer-motion';
 import React from 'react'
 
 import styled from 'styled-components'
+import { NavListMain } from '../../static_data/menu';
 import Link from './Link';
-
-const links = [
-    {
-        name: "Home",
-        link: "/"
-    },
-    {
-        name: "About Us",
-        link: "/about-us"
-    },
-    {
-        name: "Events",
-        link: "/events"
-    },
-    {
-        name: "Contact Us",
-        link: "/contact-us"
-    },
-    {
-        name: "Donate",
-        link: "/donate"
-    },
-    {
-        name: "Legal",
-        link: "/legal"
-    }
-]
 
 const variants = {
     open: {
@@ -57,8 +31,8 @@ function TopNav() {
     return (
         <TopNavHolder as={motion.div} variants={variants}>
             <nav>
-                {links.map((item, index)=>(
-                    <Link link={item.link} key={index}>{item.name}</Link>
+                {NavListMain.map((item, index)=>(
+                    <Link link={item.link} key={index}>{item.title}</Link>
                 ))}
             </nav>
         </TopNavHolder>
