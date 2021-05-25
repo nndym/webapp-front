@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Menu from '../components/Menu'
 import Logo from '../components/Logo'
 import Button from '../components/Input/Button';
+import MemberPerks from '../components/MemberPerks';
 
 const Background = styled.div`
   background: rgb(85,198,234);
@@ -121,6 +122,7 @@ const ButtonHolder = styled.div`
 
 
 
+
 export default function Home() {
   return (
     <>
@@ -142,6 +144,7 @@ export default function Home() {
                 <Button href="/camp/2021">Learn More</Button>
               </ButtonHolder>
             </Header>
+            <MemberPerks/>
           </Container>
         </Content>
       </Background>
