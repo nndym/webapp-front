@@ -51,6 +51,7 @@ const Main = styled.main`
   margin: 15px 0px;
   margin-bottom: 50px;
 
+
   h2 {
       font-size: 2.5rem;
       margin: 15px 0px;

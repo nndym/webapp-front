@@ -138,7 +138,7 @@ function Navigation() {
                 <ButtonHolder>
                     <Button primary href="/login">Login</Button>
                     <Button primary href="/register">Register</Button>
-                    <Button href="/account">Learn More</Button>
+                    <Button href="/member">Learn More</Button>
                 </ButtonHolder>
             </Member>
         </Holder>
