@@ -4,7 +4,7 @@ export const NavListMain = [
         title: "Home",
     },
     {
-        link: '/about-us',
+        link: '/about',
         title: "About Us",
     },
     {
