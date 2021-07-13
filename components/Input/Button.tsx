@@ -19,7 +19,7 @@ const Main = styled.a`
 interface Props {
     children?: any,
     onClick?: any,
-    href?: string,
+    href: string,
     primary?: boolean
 }
 

@@ -14,27 +14,12 @@ const Holder = styled.div`
 
 const LogoSVG = styled.svg`
     width: 60px;
-    margin-left: 50px;
-    margin-right: 10px;
     display: block;
-    fill: ${({ theme }) => theme.colors.primary};
-
-    @media (max-width: 900px) {
-        margin-left: 40px;
-    }
-
-    @media (max-width: 712px) {
-        margin-left: 10px;
-    }
+    fill: #fff;
 `;
 
 function Logo() {
     return (
-        <Holder
-            as={motion.div}
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-        >
             <LogoSVG 
                 version="1.0" 
                 xmlns="http://www.w3.org/2000/svg"
@@ -176,7 +161,6 @@ function Logo() {
                     />
                 </g>
             </LogoSVG>
-        </Holder>
     )
 }
 

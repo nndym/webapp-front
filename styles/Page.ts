@@ -69,8 +69,7 @@ export const Container = styled.div`
 `;
 
 
-export 
-const Header = styled.div`
+export const Header = styled.div`
   padding: 240px 0px;
   color: ${props => props.page ? "#129CDF" : "white"};
   
