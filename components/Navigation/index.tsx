@@ -1,17 +1,46 @@
 import React from 'react'
 
+const menu_items = [
+    {
+        name: 'Home',
+        link: '/'
+    },
+    {
+        name: 'Posts',
+        link: '/blog'
+    },
+    {
+        name: 'About us',
+        link: '/about-us'
+    },
+    {
+        name: 'Events',
+        link: '/events'
+    },
+    {
+        name: 'Contact us',
+        link: '/contact-us'
+    },
+
+]
+
 function Navigation() {
     return (
-        <div className="container m-auto mt-12 mb-6">
-            <header className="flex justify-between items-center">
+        <div className="container m-auto">
+            <header className="flex justify-between pt-12 pb-6 items-center">
                 <img width={55} src="/logo.svg" />
                 <nav>
                     <ul className="flex">
-                        <li>Home</li>
-                        <li>Posts</li>
-                        <li>About us</li>
-                        <li>Events</li>
-                        <li>Cotact us</li>
+                        {menu_items.map((item, index) => (
+                            <li
+                                key={index}
+                                className="mx-4"
+                            >
+                                <a href={item.link}>
+                                {item.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </nav>
                 <div>
