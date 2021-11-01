@@ -12,6 +12,7 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         drag
+        style={{height: '200vh'}}
       >
         NNDYM
       </motion.h1>
