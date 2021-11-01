@@ -3,25 +3,7 @@ import Head from "next/head";
 import { fetchAPI } from '../lib/api';
 import { createContext } from 'react';
 import { getStrapiMedia } from '../lib/media';
-  
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-`
-
-const theme = {
-  colors: {
-    primary: '#129CDF',
-    secondary: '#0800FF',
-  },
-}
-
+import '../styles/globals.css'
 
 export const GlobalContext = createContext({});
 
@@ -37,12 +19,9 @@ function MyApp({ Component, pageProps }) {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;900&display=swap" rel="stylesheet"></link>
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></link>
       </Head>
-      <GlobalStyle/>
-      <ThemeProvider theme={theme}>
-        <GlobalContext.Provider value={global}>
-          <Component {...pageProps} />
-        </GlobalContext.Provider>
-      </ThemeProvider>
+      <GlobalContext.Provider value={global}>
+        <Component {...pageProps} />
+      </GlobalContext.Provider>
     </>
   )
 }
