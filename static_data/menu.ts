@@ -1,27 +1,35 @@
-export const NavListMain = [
+export const menu_items_top = [
+    // {
+    //     name: 'Home',
+    //     link: '/'
+    // },
     {
-        link: '/',
-        title: "Home",
+        name: 'Posts',
+        big: true,
+        data: {
+            name: "posts",
+            size: "small"
+        }
     },
     {
-        link: '/about',
-        title: "About Us",
+        name: 'About',
+        big: true,
+        data: {
+            name: "about",
+            size: "big"
+        }
     },
     {
-        link: '/events',
-        title: "Events",
+        name: 'Events',
+        big: true,
+        data: {
+            name: "events",
+            size: "small"
+        }
     },
     {
-        link: '/contact-us',
-        title: "Contact Us",
-    },
-    {
-        link: '/donate',
-        title: "Donate",
-    },
-    {
-        link: '/legal',
-        title: "Legal",
+        name: 'Contact',
+        link: '/contact'
     },
 ]
 

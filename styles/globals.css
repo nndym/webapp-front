@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hoverable {
+    position: static;
+}
+
+.hoverable > a:after {
+    position: relative;
+    top: -1px;
+}
+
+.hoverable:hover .mega-menu {
+    display: block;
+}
+
+.hoverable:hover span {
+    color: #189EFE;
+}
+
+.mega-menu {
+    display: none;
+    left: 0;
+    position: absolute;
+  }

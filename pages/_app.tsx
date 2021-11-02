@@ -10,7 +10,7 @@ export const GlobalContext = React.createContext({});
 function MyApp({ Component, pageProps }) {
 
   const {global} = pageProps;
-  
+
   return (
     <>
       <Head>
