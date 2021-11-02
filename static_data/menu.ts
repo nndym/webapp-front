@@ -1,27 +1,23 @@
-export const NavListMain = [
+export const menu_items_top = [
     {
-        link: '/',
-        title: "Home",
+        name: 'Home',
+        link: '/'
     },
     {
-        link: '/about',
-        title: "About Us",
+        name: 'Posts',
+        big: true,
     },
     {
-        link: '/events',
-        title: "Events",
+        name: 'About us',
+        link: '/about-us'
     },
     {
-        link: '/contact-us',
-        title: "Contact Us",
+        name: 'Events',
+        big: true
     },
     {
-        link: '/donate',
-        title: "Donate",
-    },
-    {
-        link: '/legal',
-        title: "Legal",
+        name: 'Contact us',
+        link: '/contact-us'
     },
 ]
 
