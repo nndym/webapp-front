@@ -69,7 +69,7 @@ function Navigation() {
         >
             <div className=" container m-auto">
                 <motion.header 
-                    className="flex justify-between pt-10 pb-6 items-center "
+                    className="flex justify-between pt-6 pb-6 items-center "
                     initial={{
                         opacity: 0,
                         y: -20
@@ -138,8 +138,8 @@ function BigMenuItem({name}){
                 {name} <i className="las la-angle-down"></i>
                 
             </span>
-            <div className="mega-menu w-full pt-6">
-                <div className="bg-white container m-auto rounded-md p-8 animate-fade-in">
+            <div className="mega-menu w-full pt-8">
+                <div className="bg-white container m-auto rounded-md p-8 animate-fade-in shadow-md">
                     <h1> Large Menu </h1>
                 </div>
             </div>
