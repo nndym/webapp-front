@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import {motion} from 'framer-motion'
 import MenuButton from "./MenuButton"
+import { menu_items_top } from "static_data/menu"
+import MenuItem from "./MenuItem"
 
 function MobileMenu({open, setOpen}) {
 
@@ -39,11 +41,24 @@ function MobileMenu({open, setOpen}) {
         >
            <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full'>
                 <div className='flex justify-between p-4'>
-                    <h1>NNDYM</h1>
+                    <h1 className="text-3xl p-2 font-bold text-blue">NNDYM</h1>
                     <MenuButton
                         open={open}
                         setOpen={()=>setOpen(false)}
                     />
+                </div>
+                <div className="px-6">
+                    {menu_items_top.map((item, index) => (
+                        <div key={index}>
+                            {item.big ? (
+                                <>
+                                {item.name}
+                                </>
+                            ) : (
+                                <MenuItem mobile name={item.name} link={item.link} />
+                            )}
+                        </div>
+                    ))}
                 </div>
            </div>
         </motion.div>

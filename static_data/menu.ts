@@ -1,15 +1,15 @@
 export const menu_items_top = [
-    {
-        name: 'Home',
-        link: '/'
-    },
+    // {
+    //     name: 'Home',
+    //     link: '/'
+    // },
     {
         name: 'Posts',
         big: true,
     },
     {
         name: 'About us',
-        link: '/about-us'
+        big: true,
     },
     {
         name: 'Events',

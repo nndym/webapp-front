@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-function MenuItem({ name, link }) {
+function MenuItem({ name, link, mobile = false }) {
 
     return (
         <Link
@@ -8,7 +8,7 @@ function MenuItem({ name, link }) {
             passHref
         >
             <a 
-                className=" mx-2 lg:mx-4 font-bold transition-colors hover:text-blue"
+                className={ (mobile ? "my-1 block" : "mx-2 lg:mx-4") + " font-bold transition-colors hover:text-blue"}
             >
             {name}
             </a>
