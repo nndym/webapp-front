@@ -6,14 +6,26 @@ export const menu_items_top = [
     {
         name: 'Posts',
         big: true,
+        data: {
+            name: "posts",
+            size: "small"
+        }
     },
     {
         name: 'About',
         big: true,
+        data: {
+            name: "about",
+            size: "big"
+        }
     },
     {
         name: 'Events',
-        big: true
+        big: true,
+        data: {
+            name: "events",
+            size: "small"
+        }
     },
     {
         name: 'Contact',

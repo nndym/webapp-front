@@ -1,19 +1,35 @@
-function MegaMenuItem({name}){
+import { useMenu } from "./Context";
+import {motion} from 'framer-motion'
+
+let timeout;
+
+function MegaMenuItem({name,data}){
+
+    const {setShow, setInfo, show}:any = useMenu();
+
     return (
-        <div className='hoverable'>
-            <span
+        <motion.div 
+            onHoverStart={()=>{
+                if(show) {
+                    clearTimeout(timeout)
+                }
+                setShow(true)
+                setInfo(data)
+            }}
+            onHoverEnd={()=>{
+                timeout = setTimeout(() => {
+                    setShow(false)
+                }, 400);
+            }}
+        >
+            <motion.span
+                
                 className="mx-2 lg:mx-4 font-bold transition-colors hover:text-blue cursor-pointer"
             >
                 {name} <i className="las la-angle-down"></i>
                 
-            </span>
-            <div className="mega-menu w-full pt-8 ">
-                <div className="bg-white container m-auto rounded-md p-8 animate-fade-in shadow-md">
-                    <h1> Large Menu </h1>
-                </div>
-            </div>
-            
-        </div>
+            </motion.span>      
+        </motion.div>
     )
 }
 

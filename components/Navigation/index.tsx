@@ -5,6 +5,8 @@ import { menu_items_top } from 'static_data/menu';
 import MenuItem from './MenuItem';
 import MegaMenuItem from './MegaMenuItem';
 import MenuButton from './MenuButton';
+import { MenuProvider } from './Context';
+import MegaMenu from './MegaMenu';
 
 function Navigation() {
 
@@ -67,20 +69,24 @@ function Navigation() {
 
                     >
                         <img width={55} src="/logo.svg" />
-                        <nav className='hidden md:flex'>
-                            {menu_items_top.map((item, index) => item.big ? (
-                                <MegaMenuItem
-                                    key={index}
-                                    name={item.name}
-                                />
-                            ) : (
-                                <MenuItem 
-                                    key={index} 
-                                    name={item.name}
-                                    link={item.link} 
-                                />
-                            ))}
-                        </nav>
+                        <MenuProvider>
+                            <nav className='hidden md:flex'>
+                                {menu_items_top.map((item, index) => item.big ? (
+                                    <MegaMenuItem
+                                        key={index}
+                                        name={item.name}
+                                        data={item.data}
+                                    />
+                                ) : (
+                                    <MenuItem 
+                                        key={index} 
+                                        name={item.name}
+                                        link={item.link} 
+                                    />
+                                ))}
+                                <MegaMenu/>
+                            </nav>
+                        </MenuProvider>
                         <div className="hidden md:flex">
                             <button>Donate</button>
                             <button className='ml-4'>Account</button>
