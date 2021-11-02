@@ -8,7 +8,7 @@ export const menu_items_top = [
         big: true,
     },
     {
-        name: 'About us',
+        name: 'About',
         big: true,
     },
     {
@@ -16,8 +16,8 @@ export const menu_items_top = [
         big: true
     },
     {
-        name: 'Contact us',
-        link: '/contact-us'
+        name: 'Contact',
+        link: '/contact'
     },
 ]
 
