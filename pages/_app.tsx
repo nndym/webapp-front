@@ -1,11 +1,11 @@
 import App from "next/app";
 import Head from "next/head";
 import { fetchAPI } from '../lib/api';
-import { createContext } from 'react';
+import React from 'react';
 import { getStrapiMedia } from '../lib/media';
 import '../styles/globals.css'
 
-export const GlobalContext = createContext({});
+export const GlobalContext = React.createContext({});
 
 function MyApp({ Component, pageProps }) {
 
@@ -15,9 +15,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet"></link>
-        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"></link>
       </Head>
       <div className="font-roboto bg-gray-100 min-h-screen">
         <GlobalContext.Provider value={global}>

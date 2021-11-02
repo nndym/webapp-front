@@ -16,6 +16,11 @@ export default function Home() {
       >
         NNDYM
       </motion.h1>
+      <footer>
+        <a target="_blank" rel="noreferrer" href="https://vercel.com/?utm_source=[nndym]&utm_campaign=oss">
+          <img src="/vercel/powered-by-vercel.svg" alt="powered by vercel"/>
+        </a>
+      </footer>
     </>
   )
 }
