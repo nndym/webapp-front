@@ -6,11 +6,12 @@ import {motion} from 'framer-motion'
 function MegaMenu() {
 
     const {show, info}:any = useMenu();
+    const [hide, setHide] = useState(true)
 
     useEffect(() => {
         if(show){
             setDisplay(true)
-
+            setHide(false)
             setTimeout(() => {
                 setDisplay(false)
             }, 600);
@@ -57,12 +58,15 @@ function MegaMenu() {
                 setTimeout(() => {
                     setDisplay(false)
                 }, 400);
-            }} 
+            }}
+            onAnimationComplete={definition => {
+                if(definition === "closed") setHide(true)
+            }}
             variants={variants_display}
             initial={variants_display.closed}
             custom={findSize()}
             animate={findVariant()}
-            className="w-full mt-14 absolute left-0"
+            className={"w-full mt-14 absolute left-0 " + (hide ? 'hidden' : '')}
         >
             <motion.div
                 animate={{
