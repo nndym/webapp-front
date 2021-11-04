@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useMenu } from './Context'
 import {motion} from 'framer-motion'
 
-
 function MegaMenu() {
 
-    const {show, info}:any = useMenu();
+    const {show, info, display, setDisplay, setShow, timer}:any = useMenu();
     const [hide, setHide] = useState(true)
+    const timeout = useRef(null)
+    const timeout_animate = useRef(null)
 
     useEffect(() => {
         if(show){
             setDisplay(true)
             setHide(false)
-            setTimeout(() => {
-                setDisplay(false)
-            }, 600);
-
         }
-    }, [show])
-
-    const [display, setDisplay] = useState(false)
+    }, [setDisplay, show])
 
     const findVariant = () => {
         if(show || display){
@@ -53,14 +48,25 @@ function MegaMenu() {
 
     return (
         <motion.div 
-            onHoverStart={()=>{setDisplay(true)}} 
+            onHoverStart={()=>{
+                setDisplay(true)
+                clearTimeout(timeout.current)
+                clearTimeout(timeout_animate.current)
+            }} 
             onHoverEnd={()=>{
-                setTimeout(() => {
+                timeout.current = setTimeout(() => {
                     setDisplay(false)
-                }, 400);
+                }, 800);
             }}
             onAnimationComplete={definition => {
-                if(definition === "closed") setHide(true)
+                if(definition === "closed") {
+                    setHide(true)
+                    setDisplay(false)
+                } else {
+                    timeout_animate.current = setTimeout(() => {
+                        setDisplay(false)
+                    } , 800);
+                }
             }}
             variants={variants_display}
             initial={variants_display.closed}
