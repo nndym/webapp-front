@@ -15,16 +15,6 @@ function Navigation() {
     const [moved, setMoved] = React.useState(false);
     const [open, setOpen] = React.useState(false);
 
-    function update() {
-        //@ts-ignore
-        if (scrollY?.current < scrollY?.prev) {
-            setMoved(false);
-        //@ts-ignore
-        } else if (scrollY?.current > 30 && scrollY?.current > scrollY?.prev) {
-            setMoved(true);
-        }
-    }
-
     /** update the onChange callback to call for `update()` **/
     React.useEffect(() => {
         
@@ -33,8 +23,16 @@ function Navigation() {
             setMoved(true);
         }
 
-        return scrollY.onChange(() => update());
-    });
+        return scrollY.onChange(() => {
+            //@ts-ignore
+            if (scrollY?.current < scrollY?.prev) {
+                setMoved(false);
+            //@ts-ignore
+            } else if (scrollY?.current > 30 && scrollY?.current > scrollY?.prev) {
+                setMoved(true);
+            }
+        });
+    }, [scrollY]);
 
     const variants = {
         /** this is the "top" key and it's correlating styles **/
@@ -68,7 +66,7 @@ function Navigation() {
                         }}
 
                     >
-                        <img width={55} src="/logo.svg" />
+                        <img width={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
