@@ -7,6 +7,7 @@ import MegaMenuItem from './MegaMenuItem';
 import MenuButton from './MenuButton';
 import { MenuProvider } from './Context';
 import MegaMenu from './MegaMenu';
+import Button from '@components/Button';
 
 function Navigation() {
 
@@ -86,8 +87,8 @@ function Navigation() {
                             </nav>
                         </MenuProvider>
                         <div className="hidden md:flex">
-                            <button>Donate</button>
-                            <button className='ml-4'>Account</button>
+                            <Button color="black" href="/donate" clear>Donate</Button>
+                            <Button className='ml-4' href="/account">Account</Button>
                         </div>
                         <div className="block md:hidden">
                             <MenuButton 
