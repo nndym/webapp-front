@@ -28,7 +28,7 @@ function Button({
     loading = false,
 }:Props) {
 
-    let styles = className + " font-medium shadow-sm hover:shadow-md transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
+    let styles = className + " font-medium text-center shadow-sm hover:shadow-md transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue"
 
     switch(size) {
         case "small":
