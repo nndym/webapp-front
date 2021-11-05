@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useMenu } from './Context'
 import {motion} from 'framer-motion'
 
-
 function MegaMenu() {
 
-    const {show, info}:any = useMenu();
+    const {show, info, display, setDisplay, setShow, timer}:any = useMenu();
+    const [hide, setHide] = useState(true)
+    const timeout = useRef(null)
+    const timeout_animate = useRef(null)
 
     useEffect(() => {
         if(show){
             setDisplay(true)
-
-            setTimeout(() => {
-                setDisplay(false)
-            }, 600);
-
+            setHide(false)
         }
-    }, [show])
-
-    const [display, setDisplay] = useState(false)
+    }, [setDisplay, show])
 
     const findVariant = () => {
         if(show || display){
@@ -52,17 +48,31 @@ function MegaMenu() {
 
     return (
         <motion.div 
-            onHoverStart={()=>{setDisplay(true)}} 
-            onHoverEnd={()=>{
-                setTimeout(() => {
-                    setDisplay(false)
-                }, 400);
+            onHoverStart={()=>{
+                setDisplay(true)
+                clearTimeout(timeout.current)
+                clearTimeout(timeout_animate.current)
             }} 
+            onHoverEnd={()=>{
+                timeout.current = setTimeout(() => {
+                    setDisplay(false)
+                }, 800);
+            }}
+            onAnimationComplete={definition => {
+                if(definition === "closed") {
+                    setHide(true)
+                    setDisplay(false)
+                } else {
+                    timeout_animate.current = setTimeout(() => {
+                        setDisplay(false)
+                    } , 800);
+                }
+            }}
             variants={variants_display}
             initial={variants_display.closed}
             custom={findSize()}
             animate={findVariant()}
-            className="w-full mt-14 absolute left-0"
+            className={"w-full mt-14 absolute left-0 " + (hide ? 'hidden' : '')}
         >
             <motion.div
                 animate={{

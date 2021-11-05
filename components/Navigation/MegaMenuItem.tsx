@@ -1,26 +1,14 @@
 import { useMenu } from "./Context";
 import {motion} from 'framer-motion'
 
-let timeout;
-
 function MegaMenuItem({name,data}){
 
-    const {setShow, setInfo, show}:any = useMenu();
-
+    let {menuItemHoverStart, menuItemHoverEnd}:any = useMenu();
+    
     return (
         <motion.div 
-            onHoverStart={()=>{
-                if(show) {
-                    clearTimeout(timeout)
-                }
-                setShow(true)
-                setInfo(data)
-            }}
-            onHoverEnd={()=>{
-                timeout = setTimeout(() => {
-                    setShow(false)
-                }, 400);
-            }}
+            onHoverStart={()=>{menuItemHoverStart(data)}}
+            onHoverEnd={menuItemHoverEnd}
         >
             <motion.span
                 

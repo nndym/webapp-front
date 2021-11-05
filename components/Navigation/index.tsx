@@ -7,6 +7,7 @@ import MegaMenuItem from './MegaMenuItem';
 import MenuButton from './MenuButton';
 import { MenuProvider } from './Context';
 import MegaMenu from './MegaMenu';
+import Button from '@components/Button';
 
 function Navigation() {
 
@@ -14,16 +15,6 @@ function Navigation() {
 
     const [moved, setMoved] = React.useState(false);
     const [open, setOpen] = React.useState(false);
-
-    function update() {
-        //@ts-ignore
-        if (scrollY?.current < scrollY?.prev) {
-            setMoved(false);
-        //@ts-ignore
-        } else if (scrollY?.current > 30 && scrollY?.current > scrollY?.prev) {
-            setMoved(true);
-        }
-    }
 
     /** update the onChange callback to call for `update()` **/
     React.useEffect(() => {
@@ -33,8 +24,16 @@ function Navigation() {
             setMoved(true);
         }
 
-        return scrollY.onChange(() => update());
-    });
+        return scrollY.onChange(() => {
+            //@ts-ignore
+            if (scrollY?.current < scrollY?.prev) {
+                setMoved(false);
+            //@ts-ignore
+            } else if (scrollY?.current > 30 && scrollY?.current > scrollY?.prev) {
+                setMoved(true);
+            }
+        });
+    }, [scrollY]);
 
     const variants = {
         /** this is the "top" key and it's correlating styles **/
@@ -68,7 +67,7 @@ function Navigation() {
                         }}
 
                     >
-                        <img width={55} src="/logo.svg" />
+                        <img width={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
@@ -88,8 +87,8 @@ function Navigation() {
                             </nav>
                         </MenuProvider>
                         <div className="hidden md:flex">
-                            <button>Donate</button>
-                            <button className='ml-4'>Account</button>
+                            <Button color="black" href="/donate" clear>Donate</Button>
+                            <Button className='ml-4' href="/account">Account</Button>
                         </div>
                         <div className="block md:hidden">
                             <MenuButton 
