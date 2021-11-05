@@ -3,6 +3,7 @@ import {motion} from 'framer-motion'
 import MenuButton from "./MenuButton"
 import { menu_items_top } from "static_data/menu"
 import MenuItem from "./MenuItem"
+import Button from "@components/Button"
 
 function MobileMenu({open, setOpen}) {
 
@@ -59,6 +60,21 @@ function MobileMenu({open, setOpen}) {
                             )}
                         </div>
                     ))}
+                    <div className="flex flex-col my-2">
+                        <Button
+                            clear
+                            color="black"
+                            href="/donate"
+                        >
+                            Donate
+                        </Button>
+                        <Button 
+                            className="my-2"
+                            href="/account"
+                        >
+                            Account
+                        </Button>
+                    </div>
                 </div>
            </div>
         </motion.div>
