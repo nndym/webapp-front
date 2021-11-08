@@ -40,7 +40,7 @@ function MobileMenu({open, setOpen}) {
             onClick={()=>{setOpen(false)}}
             transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-           <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full'>
+           <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full overflow-y-auto'>
                 <div className='flex justify-between p-4'>
                     <h1 className="text-3xl p-2 font-bold text-blue">NNDYM</h1>
                     <MenuButton
