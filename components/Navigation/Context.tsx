@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 
 const MenuContext = React.createContext({})
 
@@ -12,6 +12,12 @@ export function MenuProvider({children}) {
     const [info, setInfo] = useState("Test")
     const [display, setDisplay] = useState(false)
     const timer = useRef(null)
+
+    useEffect(() => {
+        return () => {
+            clearTimeout(timer.current)
+        }
+    }, [])
 
     const menuItemHoverEnd = () => {        
         timer.current = setTimeout(() => {
