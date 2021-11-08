@@ -4,6 +4,7 @@ import { fetchAPI } from '../lib/api';
 import React from 'react';
 import { getStrapiMedia } from '../lib/media';
 import '../styles/globals.css'
+import { Provider } from 'next-auth/client'
 
 export const GlobalContext = React.createContext({});
 
@@ -12,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   const {global} = pageProps;
 
   return (
-    <>
+    <Provider session={pageProps.session}>
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
@@ -21,7 +22,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </GlobalContext.Provider>
       </div>
-    </>
+    </Provider>
   )
 }
 
