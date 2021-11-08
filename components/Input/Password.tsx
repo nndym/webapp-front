@@ -1,20 +1,19 @@
-import React, { useRef, useState } from 'react'
-import Base from './InputParts/Base';
-import HelperText from './InputParts/HelperText';
-import Label from './InputParts/Label';
-import { InputProps } from './InputParts/types';
-import Wrapper from './InputParts/Wrapper';
+import React from 'react'
+import Base from './InputParts/Base'
+import HelperText from './InputParts/HelperText'
+import Label from './InputParts/Label'
+import { InputProps } from './InputParts/types'
+import Wrapper from './InputParts/Wrapper'
 
-function EmailInput({
-    name = "email",
-    label = "Email",
-    id = "email",
+function PasswordInput({
+    name = "password",
+    label = "Password",
+    id = "password",
     icon,
     error,
     helperText,
     required = false,
     spacing = false,
-    type = "email",
     value,
     onChange,
     onBlur,
@@ -31,7 +30,6 @@ function EmailInput({
     onMouseLeave,
     onMouseOver,
 }: InputProps) {
-
     return (
         <Wrapper spacing={spacing}>
             <Label 
@@ -43,11 +41,12 @@ function EmailInput({
             <Base
                 name={name}
                 id={id}
+                toggle
                 required={required}
                 icon={icon} 
-                type={type}
-                value={value}
                 error={error}
+                type="password"
+                value={value}
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
@@ -68,4 +67,4 @@ function EmailInput({
     )
 }
 
-export default EmailInput
+export default PasswordInput
