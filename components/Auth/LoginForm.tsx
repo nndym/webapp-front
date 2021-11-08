@@ -7,7 +7,7 @@ import { EmailIcon, PasswordIcon } from 'static_data/icons'
 
 function LoginForm({token}: {token: string}) {
     return (
-        <div>
+        <div className="max-w-md">
             <h1 className="text-3xl font-medium dark:text-white">Login</h1>
             <h1 className="text-gray-600 dark:text-gray-300">Access the full benfits of your NNDYM account!</h1>
             <form className="my-4" method="post" action="/api/auth/callback/credentials">

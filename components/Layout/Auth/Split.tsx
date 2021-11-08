@@ -8,8 +8,8 @@ function Split({children}: {children: React.ReactNode}) {
                 {children[0]}
             </div>
             <motion.div
-                initial={{ background: 'rgba(243, 244, 246)'}}
-                animate={{ background: 'rgba(24, 158, 254)' }} 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1  }} 
                 transition={ { duration: 0.5, ease: 'easeInOut' } }
                 className="bg-blue min-h-screen sm:h-auto dark:bg-gray-800 lg:col-span-4 flex flex-col items-center justify-center"
             >
