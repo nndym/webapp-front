@@ -5,6 +5,7 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import LoginForm from '@components/Auth/LoginForm'
+import { motion } from 'framer-motion'
 
 function Login({ csrfToken }) {
     
@@ -16,14 +17,19 @@ function Login({ csrfToken }) {
                 <title>Login - NNDYM</title>
             </Head>
             <Split>
-                <div>
+                <motion.div 
+                    className='w-[80%]'
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={ { duration: 0.6, ease: "easeInOut" } }
+                >
                     <span aria-label="Back" className="cursor-pointer text-gray-500 dark:text-white" onClick={()=>router.back()}><i className="las la-arrow-left"></i> Back</span>
                     <div className="my-8">
                         <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointe" src="/logo.svg" />
                         <LoginForm token={csrfToken}/>
                     </div>
                     <h1>Footer</h1>
-                </div>
+                </motion.div>
                 <div>
                     Right
                 </div>
