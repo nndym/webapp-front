@@ -8,6 +8,8 @@ import MenuButton from './MenuButton';
 import { MenuProvider } from './Context';
 import MegaMenu from './MegaMenu';
 import Button from '@components/Button';
+import Image from 'next/image'
+
 
 function Navigation() {
 
@@ -67,7 +69,7 @@ function Navigation() {
                         }}
 
                     >
-                        <img width={55} alt="NNDYM Logo" src="/logo.svg" />
+                        <Image width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
