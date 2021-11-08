@@ -1,5 +1,9 @@
+import Button from '@components/Button'
 import EmailInput from '@components/Input/Email'
+import PasswordInput from '@components/Input/Password'
+import Link from 'next/link'
 import React from 'react'
+import { EmailIcon, PasswordIcon } from 'static_data/icons'
 
 function LoginForm({token}: {token: string}) {
     return (
@@ -9,15 +13,35 @@ function LoginForm({token}: {token: string}) {
             <form className="my-4" method="post" action="/api/auth/callback/credentials">
                 <input name="csrfToken" type="hidden" defaultValue={token} />
                 <EmailInput
-                    //error="Please enter a valid email"
+                   //error="Please enter a valid email"
                    required
-                   icon
+                   spacing
+                   name="email"
+                   label="Email"
+                   icon={EmailIcon}
                 />
-                {/* <label>
-                    Password
-                    <input name="password" type="password" />
-                </label>
-                <button type="submit">Sign in</button> */}
+                <PasswordInput
+                    spacing
+                    required
+                    icon={PasswordIcon}
+                    //error="Incorrect Email/Password"
+                />
+                <div className="flex justify-end">
+                    <Link
+                        href="/forgot-password"
+                        passHref
+                    >
+                        <a className="text-blue font-medium transition-colors hover:text-gray-800">
+                        Forgot Password?
+                        </a>
+                    </Link>
+                </div>
+                <Button 
+                    type="submit"
+                    className="w-full my-2"
+                >
+                    Login
+                </Button>
             </form>
         </div>
     )
