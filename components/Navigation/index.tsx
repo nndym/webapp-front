@@ -9,11 +9,13 @@ import { MenuProvider } from './Context';
 import MegaMenu from './MegaMenu';
 import Button from '@components/Button';
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
 
 function Navigation() {
 
     const { scrollY } = useViewportScroll();
+    const router = useRouter()
 
     const [moved, setMoved] = React.useState(false);
     const [open, setOpen] = React.useState(false);
@@ -69,7 +71,7 @@ function Navigation() {
                         }}
 
                     >
-                        <Image width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/")} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
