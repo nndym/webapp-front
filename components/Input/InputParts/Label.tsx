@@ -14,7 +14,7 @@ function Label({
     required,
 }:Props) {
     return (
-        <label className={"my-1 text-black dark:text-white " + (error && ' text-red-500')} htmlFor={id}>{label} {required && <span className='font-bold'>*</span>}</label>
+        <label className={"my-1 dark:text-white" + (error ? ' text-red-500 ' : " text-black ")} htmlFor={id}>{label} {required && <span className='font-bold'>*</span>}</label>
     )
 }
 
