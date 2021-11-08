@@ -28,7 +28,11 @@ function Login({ csrfToken }) {
                         <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointe" src="/logo.svg" />
                         <LoginForm token={csrfToken}/>
                     </div>
-                    <h1>Footer</h1>
+                    <footer>
+                        <a target="_blank" rel="noreferrer" href="https://vercel.com/?utm_source=[nndym]&utm_campaign=oss">
+                            <Image width={106} height={22} src="/vercel/powered-by-vercel.svg" alt="powered by vercel"/>
+                        </a>
+                    </footer>
                 </motion.div>
                 <div>
                     Right
