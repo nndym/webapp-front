@@ -86,7 +86,6 @@ function LoginForm({token}: {token: string}) {
 
             <FormikProvider value={formik}>
                 <form onSubmit={formik.handleSubmit} className="my-4" method="post">
-                    <input name="csrfToken" type="hidden" defaultValue={token} />
                     <EmailInput
                         error={formik.touched.email && formik.errors.email && formik.errors.email.toString()}
                         value={formik.values.email}
