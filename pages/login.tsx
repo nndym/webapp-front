@@ -7,6 +7,7 @@ import Image from 'next/image'
 import LoginForm from '@components/Auth/LoginForm'
 import { motion } from 'framer-motion'
 import Footer from '@components/Auth/Footer'
+import loginClipArt from '../public/images/clipart/login.png'
 
 function Login({ csrfToken }) {
     
@@ -34,8 +35,13 @@ function Login({ csrfToken }) {
                     </div>
                     <Footer/>
                 </motion.div>
-                <div>
-                    Right
+                <div className="flex flex-col w-full h-full p-4 sm:p-8 md:p-16 lg:p-32">
+                    <div className="w-full relative h-full">
+                        <Image placeholder="blur" className='' src={loginClipArt} quality={100} alt="Person going into an unknown place with a portal" layout="fill" objectFit="contain" />
+                    </div>
+                    <div className=" my-2 sm:my-4 md:my-8 lg:my-16 mb-8">
+                        <h3 className="text-center text-4xl font-medium text-white">Access the full benfits of your NNDYM account!</h3>
+                    </div>
                 </div>
             </Split>
         </>

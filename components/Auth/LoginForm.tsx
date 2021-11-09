@@ -87,7 +87,9 @@ function LoginForm({token}: {token: string}) {
     return (
         <div className="max-w-md">
             <h1 className="text-3xl font-medium dark:text-white">Login</h1>
-            <h1 className="text-gray-600 dark:text-gray-300">Access the full benfits of your NNDYM account!</h1>
+            <span className='my-2 block dark:text-white '>
+                {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Sign Up</a></Link> 
+            </span>
 
             <FormikProvider value={formik}>
                 <form onSubmit={formik.handleSubmit} className="my-4" method="post">
@@ -121,11 +123,7 @@ function LoginForm({token}: {token: string}) {
                         className="w-full my-2"
                     >
                         Login
-                    </Button>
-                    
-                        <span className='my-2 block dark:text-white '>
-                            {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Sign Up</a></Link> 
-                        </span>
+                    </Button>     
                 </form>
             </FormikProvider>
 
