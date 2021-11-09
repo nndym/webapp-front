@@ -18,28 +18,6 @@ function LoginForm({token}: {token: string}) {
 
     const router = useRouter()    
 
-    const doHtmlFormPost = values => {
-        axios.post('/api/auth/callback/credentials', {
-            email: values.email,
-            password: values.password,
-            csrfToken: token
-        })
-        .then(res => {
-            let url = new URLSearchParams(res.request.responseURL);
-            if(url.get('error') !== null) {
-                formik.setFieldError('email', "Email/Password was incorrect");
-                formik.setFieldError('password', " ");
-            } else {
-                url = new URLSearchParams(window.location.search);
-                let callback = url.get('callbackUrl');
-                router.push(callback);
-            }
-        })
-        .catch(()=>{
-            formik.setFieldError('email', "Something has gone wrong, please try again later!"); 
-        })
-    };
-
     const formik = useFormik({
         validationSchema: LoginFormValidation,
         initialValues: {
@@ -50,7 +28,29 @@ function LoginForm({token}: {token: string}) {
             email: 'Test',
             password: ''
         },
-        onSubmit: doHtmlFormPost
+        onSubmit: (values, actions) => {
+            axios.post('/api/auth/callback/credentials', {
+                email: values.email,
+                password: values.password,
+                csrfToken: token
+            })
+            .then(res => {
+                let url = new URLSearchParams(res.request.responseURL);
+                if(url.get('error') !== null) {
+                    formik.setFieldError('email', "Email/Password was incorrect");
+                    formik.setFieldError('password', " ");
+                } else {
+                    url = new URLSearchParams(window.location.search);
+                    let callback = url.get('callbackUrl');
+                    router.push(callback);
+                }
+                actions.setSubmitting(false);
+            })
+            .catch(()=>{
+                formik.setFieldError('email', "Something has gone wrong, please try again later!"); 
+                actions.setSubmitting(false);
+            })
+        }
     })
 
     return (
@@ -89,6 +89,8 @@ function LoginForm({token}: {token: string}) {
                     </div>
                     <Button 
                         type="submit"
+                        disabled={formik.isSubmitting}
+                        loading={formik.isSubmitting}
                         className="w-full my-2"
                     >
                         Login
