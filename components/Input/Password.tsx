@@ -4,11 +4,15 @@ import HelperText from './InputParts/HelperText'
 import Label from './InputParts/Label'
 import { InputProps } from './InputParts/types'
 import Wrapper from './InputParts/Wrapper'
+import PasswordStrengthBar from 'react-password-strength-bar';
+import PasswordBar from './InputParts/PasswordBar'
+
 
 function PasswordInput({
     name = "password",
     label = "Password",
     id = "password",
+    bar = false,
     icon,
     error,
     helperText,
@@ -63,6 +67,7 @@ function PasswordInput({
                 onMouseLeave={onMouseLeave}
                 onMouseOver={onMouseOver}
             />
+            {bar && <PasswordBar value={value} />}
             <HelperText error={error} helperText={helperText} success={success}/>
         </Wrapper>
     )

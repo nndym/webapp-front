@@ -10,6 +10,7 @@ export interface InputProps {
     label?: string,
     placeholder?: string,
     value?: string,
+    bar?: boolean,
     helperText?: string,
     spacing?: boolean,
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
