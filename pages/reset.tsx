@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import Footer from '@components/Auth/Footer'
 import Link from 'next/link'
 import ResetPasswordForm from '@components/Auth/ResetPasswordForm'
+import loginClipArt from '../public/images/clipart/login.png'
 
 function ResetPassword() {
 
@@ -35,8 +36,8 @@ function ResetPassword() {
                     </div>
                     <Footer/>
                 </motion.div>
-                <div>
-                    Right
+                <div >
+                    {/* className="flex flex-col w-full h-full p-4 sm:p-8 md:p-16 lg:p-32" */}
                 </div>
             </Split>            
         </>
