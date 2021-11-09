@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
       </Head>
-      <div className="font-roboto bg-gray-100 min-h-screen">
+      <div className="font-roboto bg-gray-100 dark:bg-gray-700 min-h-screen">
         <GlobalContext.Provider value={global}>
           <Component {...pageProps} />
         </GlobalContext.Provider>
