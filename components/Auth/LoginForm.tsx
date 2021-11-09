@@ -4,6 +4,7 @@ import PasswordInput from '@components/Input/Password'
 import axios from 'axios'
 import { FormikProvider, useFormik } from 'formik'
 import api from 'lib/api'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { EmailIcon, PasswordIcon } from 'static_data/icons'
@@ -57,7 +58,6 @@ function LoginForm({token}: {token: string}) {
         formik.setFieldTouched("email")
         formik.setFieldTouched("password", false)
         if(formik.errors.email) {
-            console.log(formik.errors.email);
             formik.setSubmitting(false);
         } else {
             api.post('auth/forgot-password', {email: formik.values.email})
@@ -118,6 +118,10 @@ function LoginForm({token}: {token: string}) {
                     >
                         Login
                     </Button>
+                    
+                        <span className='my-2 block'>
+                            {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors hover:text-gray-800">Sign Up</a></Link> 
+                        </span>
                 </form>
             </FormikProvider>
 
