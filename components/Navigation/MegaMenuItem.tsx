@@ -9,6 +9,8 @@ function MegaMenuItem({name,data}){
         <motion.div 
             onHoverStart={()=>{menuItemHoverStart(data)}}
             onHoverEnd={menuItemHoverEnd}
+            tabIndex={0}
+            onFocus={()=>{menuItemHoverStart(data)}}
         >
             <motion.span
                 

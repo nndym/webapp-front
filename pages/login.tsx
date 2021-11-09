@@ -23,7 +23,9 @@ function Login({ csrfToken }) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={ { duration: 0.6, ease: "easeInOut" } }
                 >
-                    <span aria-label="Back" className="cursor-pointer text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-400 transition-colors" onClick={()=>router.back()}><i className="las la-arrow-left"></i> Back</span>
+                    <div>
+                        <span tabIndex={0} aria-label="Back" className="cursor-pointer text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-400 transition-colors" onClick={()=>router.back()}><i className="las la-arrow-left"></i> Back</span>
+                    </div>
                     <div className="my-8">
                         <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
                         <LoginForm token={csrfToken}/>

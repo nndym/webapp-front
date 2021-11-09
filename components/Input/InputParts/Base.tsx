@@ -87,8 +87,8 @@ function Base({
                 onMouseOver={onMouseOver}
             />
             {toggle && (
-                show ? <i onClick={()=>setShow(!show)} className={HidePasswordIcon + " cursor-pointer p-3"}></i>
-                    :  <i onClick={()=>setShow(!show)} className={ShowPasswordIcon + " p-3 cursor-pointer"}></i>
+                show ? <i tabIndex={0} onClick={()=>setShow(!show)} className={HidePasswordIcon + " cursor-pointer p-3"}></i>
+                    :  <i tabIndex={0} onClick={()=>setShow(!show)} className={ShowPasswordIcon + " p-3 cursor-pointer"}></i>
 
             )}
         </div>
