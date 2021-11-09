@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import Image from 'next/image'
 import LoginForm from '@components/Auth/LoginForm'
 import { motion } from 'framer-motion'
+import Footer from '@components/Auth/Footer'
 
 function Login({ csrfToken }) {
     
@@ -30,11 +31,7 @@ function Login({ csrfToken }) {
                         <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
                         <LoginForm token={csrfToken}/>
                     </div>
-                    <footer>
-                        <a target="_blank" rel="noreferrer" href="https://vercel.com/?utm_source=[nndym]&utm_campaign=oss">
-                            <Image width={106} height={22} src="/vercel/powered-by-vercel.svg" alt="powered by vercel"/>
-                        </a>
-                    </footer>
+                    <Footer/>
                 </motion.div>
                 <div>
                     Right
