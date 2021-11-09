@@ -39,9 +39,14 @@ function LoginForm({token}: {token: string}) {
                     formik.setFieldError('email', "Email/Password was incorrect");
                     formik.setFieldError('password', " ");
                 } else {
-                    url = new URLSearchParams(window.location.search);
-                    let callback = url.get('callbackUrl');
-                    router.push(callback);
+                    if(window.location.search === ""){
+                        router.push("/");
+                    } else {
+                        url = new URLSearchParams(window.location.search);
+                        let callback = url.get('callbackUrl');
+                        router.push(callback);
+                    }
+                    
                 }
                 actions.setSubmitting(false);
             })
