@@ -1,11 +1,12 @@
 import React from 'react'
 import { getSession, signIn, signOut } from 'next-auth/client'
+import Loading from '@components/Loading';
 
 function Account({session}) {
 
     if(!session) {
         signIn();
-        return <p>Loading...</p> // Fix this
+        return <Loading/> // Fix this
     }
 
     return (

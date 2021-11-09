@@ -106,7 +106,7 @@ function LoginForm({token}: {token: string}) {
                         value={formik.values.password}
                     />
                     <div className="flex justify-end">
-                        <span tabIndex={0} role='Forget Reset Button' onClick={handleReset} className="text-blue cursor-pointer font-medium transition-colors hover:text-gray-800">
+                        <span tabIndex={0} role='Forget Reset Button' onClick={handleReset} className="text-blue dark:hover:text-gray-400 cursor-pointer font-medium transition-colors hover:text-gray-800">
                             Forgot Password?
                         </span>
                     </div>
@@ -119,8 +119,8 @@ function LoginForm({token}: {token: string}) {
                         Login
                     </Button>
                     
-                        <span className='my-2 block'>
-                            {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors hover:text-gray-800">Sign Up</a></Link> 
+                        <span className='my-2 block dark:text-white '>
+                            {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Sign Up</a></Link> 
                         </span>
                 </form>
             </FormikProvider>
