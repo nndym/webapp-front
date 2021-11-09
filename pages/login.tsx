@@ -16,6 +16,7 @@ function Login({ csrfToken }) {
         <>
             <Head>
                 <title>Login - NNDYM</title>
+                <meta name="description" content="Login into your NNDYM account to access the full benfits of an NNDYM account. Get exclusive events and content, early sign ups, seva opportunities and much more!" />
             </Head>
             <Split>
                 <motion.div 

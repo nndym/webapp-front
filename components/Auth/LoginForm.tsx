@@ -110,7 +110,7 @@ function LoginForm({token}: {token: string}) {
                         value={formik.values.password}
                     />
                     <div className="flex justify-end">
-                        <span tabIndex={0} role='Forget Reset Button' onClick={handleReset} className="text-blue dark:hover:text-gray-400 cursor-pointer font-medium transition-colors hover:text-gray-800">
+                        <span tabIndex={0} role='button' onClick={handleReset} className="text-blue dark:hover:text-gray-400 cursor-pointer font-medium transition-colors hover:text-gray-800">
                             Forgot Password?
                         </span>
                     </div>
