@@ -3,9 +3,9 @@ import EmailInput from '@components/Input/Email'
 import PasswordInput from '@components/Input/Password'
 import axios from 'axios'
 import { FormikProvider, useFormik } from 'formik'
-import Link from 'next/link'
+import api from 'lib/api'
 import { useRouter } from 'next/router'
-import React, { useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { EmailIcon, PasswordIcon } from 'static_data/icons'
 import * as yup from 'yup';
 
@@ -16,16 +16,14 @@ const LoginFormValidation = yup.object().shape({
 
 function LoginForm({token}: {token: string}) {
 
-    const router = useRouter()    
+    const router = useRouter()   
+
+    const [resetDone, setResetDone] = useState(false)
 
     const formik = useFormik({
         validationSchema: LoginFormValidation,
         initialValues: {
             email: '',
-            password: ''
-        },
-        initialErrors: {
-            email: 'Test',
             password: ''
         },
         onSubmit: (values, actions) => {
@@ -53,6 +51,34 @@ function LoginForm({token}: {token: string}) {
         }
     })
 
+    const handleReset = () => {
+        formik.setSubmitting(true);
+        formik.validateField('email');
+        formik.setFieldTouched("email")
+        formik.setFieldTouched("password", false)
+        if(formik.errors.email) {
+            console.log(formik.errors.email);
+            formik.setSubmitting(false);
+        } else {
+            api.post('auth/forgot-password', {email: formik.values.email})
+                .then(res => {
+                    setResetDone(true);
+                    formik.setSubmitting(false);
+                })
+                .catch(err => {
+                    switch(err.response.data.statusCode) {
+                        case 400:
+                            formik.setFieldError('email', "Email not found!");
+                            break;
+                        default:
+                            formik.setFieldError('email', "Something has gone wrong, please try again later!");
+                            break; 
+                    }
+                    formik.setSubmitting(false);
+                })
+        }
+    }
+
     return (
         <div className="max-w-md">
             <h1 className="text-3xl font-medium dark:text-white">Login</h1>
@@ -65,6 +91,8 @@ function LoginForm({token}: {token: string}) {
                         error={formik.touched.email && formik.errors.email && formik.errors.email.toString()}
                         value={formik.values.email}
                         spacing
+                        helperText={resetDone && "An email has been sent to you with a link to reset your password!"}
+                        success={resetDone}
                         onChange={formik.handleChange}
                         name="email"
                         label="Email"
@@ -78,14 +106,9 @@ function LoginForm({token}: {token: string}) {
                         value={formik.values.password}
                     />
                     <div className="flex justify-end">
-                        <Link
-                            href="/forgot-password"
-                            passHref
-                        >
-                            <a className="text-blue font-medium transition-colors hover:text-gray-800">
+                        <a onClick={handleReset} className="text-blue font-medium transition-colors hover:text-gray-800">
                             Forgot Password?
-                            </a>
-                        </Link>
+                        </a>
                     </div>
                     <Button 
                         type="submit"

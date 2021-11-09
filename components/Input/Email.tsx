@@ -11,6 +11,7 @@ function EmailInput({
     id = "email",
     icon,
     error,
+    success,
     helperText,
     required = false,
     spacing = false,
@@ -63,7 +64,7 @@ function EmailInput({
                 onMouseLeave={onMouseLeave}
                 onMouseOver={onMouseOver}
             />
-            <HelperText error={error} helperText={helperText}/>
+            <HelperText error={error} success={success} helperText={helperText}/>
         </Wrapper>
     )
 }

@@ -3,6 +3,7 @@ export interface InputProps {
     id?: string,
     icon?: string,
     error?: string | boolean,
+    success?: boolean,
     required?: boolean,
     toggle?: boolean,
     type?: string,

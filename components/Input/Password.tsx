@@ -15,6 +15,7 @@ function PasswordInput({
     required = false,
     spacing = false,
     value,
+    success,
     onChange,
     onBlur,
     onFocus,
@@ -62,7 +63,7 @@ function PasswordInput({
                 onMouseLeave={onMouseLeave}
                 onMouseOver={onMouseOver}
             />
-            <HelperText error={error} helperText={helperText}/>
+            <HelperText error={error} helperText={helperText} success={success}/>
         </Wrapper>
     )
 }
