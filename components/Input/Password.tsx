@@ -67,8 +67,8 @@ function PasswordInput({
                 onMouseLeave={onMouseLeave}
                 onMouseOver={onMouseOver}
             />
-            {bar && <PasswordBar value={value} />}
             <HelperText error={error} helperText={helperText} success={success}/>
+            {bar && <PasswordBar value={value} />}
         </Wrapper>
     )
 }
