@@ -12,8 +12,10 @@ function Account({session}) {
     return (
         <div>
             <button
-                onClick={()=>signOut()}
+                onClick={()=>signOut({ callbackUrl: '/' })}
             >Sign out</button>
+            <br/>
+            {session.confirmed ? "Email confirmed" : "Email not confirmed"}
         </div>
     )
 }
