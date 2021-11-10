@@ -61,7 +61,7 @@ function RegisterForm() {
             </span>
             <FormikProvider value={formik}>
                 <Form className='my-4'>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid  md:grid-cols-2 md:gap-4">
                         <TextInput
                             error={formik.touched.first_name && formik.errors.first_name && formik.errors.first_name.toString()}
                             value={formik.values.first_name}
@@ -83,7 +83,7 @@ function RegisterForm() {
                             icon={NameIcon}
                         />
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 md:gap-4">
                         <DateInput
                             error={formik.touched.date_of_birth && formik.errors.date_of_birth && formik.errors.date_of_birth as string}
                             value={formik.values.date_of_birth}
@@ -118,6 +118,7 @@ function RegisterForm() {
                         value={formik.values.password}
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                     />
+                    <p>agree to t and c</p>
                     <Button 
                         type="submit"
                         disabled={formik.isSubmitting}
