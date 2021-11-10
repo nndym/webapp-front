@@ -7,6 +7,7 @@ export interface InputProps {
     required?: boolean,
     toggle?: boolean,
     type?: string,
+    autoComplete?: string,
     label?: string,
     placeholder?: string,
     value?: string,
