@@ -39,20 +39,39 @@ function LoginForm({token}: {token: string}) {
                     formik.setFieldError('email', "Email/Password was incorrect");
                     formik.setFieldError('password', " ");
                 } else {
-                    if(window.location.search === ""){
-                        router.push("/");
-                    } else {
-                        url = new URLSearchParams(window.location.search);
-                        let callback = url.get('callbackUrl');
-                        router.push(callback);
+                    let findError = res.request.responseURL.split('error=');
+                    if(findError[1] === undefined) {
+                        if(window.location.search === ""){
+                            router.push("/");
+                        } else {
+                            url = new URLSearchParams(window.location.search);
+                            let callback = url.get('callbackUrl');
+                            router.push(callback);
+                        }
+                    }
+                    else {
+                        switch(findError[1]) {
+                            case 'Auth.form.error.confirmed':
+                                formik.setFieldError('email', "Your account email is not confirmed.")
+                                break;
+                            case 'Auth.form.error.blocked':
+                                formik.setFieldError('email', "Your account is blocked.")
+                                break;
+                            case 'Auth.form.error.invalid':
+                                formik.setFieldError('email', "Email/Password was incorrect");
+                                formik.setFieldError('password', " ");
+                                break;  
+                            default:
+                                formik.setFieldError('email', "Something has gone wrong, please try again later!"); 
+                        }
                     }
                     
                 }
                 actions.setSubmitting(false);
             })
-            .catch(()=>{
+            .catch((err)=>{
                 formik.setFieldError('email', "Something has gone wrong, please try again later!"); 
-                actions.setSubmitting(false);
+                actions.setSubmitting(false);                
             })
         }
     })
