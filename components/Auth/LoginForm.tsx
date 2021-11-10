@@ -19,7 +19,7 @@ function LoginForm({token}: {token: string}) {
 
     const router = useRouter()   
 
-    const [resetDone, setResetDone] = useState(false)
+    const [resetDone, setResetDone] = useState("")
 
     const formik = useFormik({
         validationSchema: LoginFormValidation,
@@ -76,6 +76,27 @@ function LoginForm({token}: {token: string}) {
         }
     })
 
+    const handleNewConfirmLink = () =>{
+        formik.setSubmitting(true);
+        api.post('auth/send-email-confirmation', {email: formik.values.email})
+            .then(res => {
+                formik.setSubmitting(false);
+                formik.setFieldError('email', "");
+                setResetDone("An email has been sent to you with a link to confirm your email address!");
+            })
+            .catch(err => {
+                switch(err.response.data.statusCode) {
+                    case 400:
+                        formik.setFieldError('email', "Email not found!");
+                        break;
+                    default:
+                        formik.setFieldError('email', "Something has gone wrong, please try again later!");
+                        break; 
+                }
+                formik.setSubmitting(false);
+            })
+    }
+
     const handleReset = () => {
         formik.setSubmitting(true);
         formik.validateField('email');
@@ -86,7 +107,7 @@ function LoginForm({token}: {token: string}) {
         } else {
             api.post('auth/forgot-password', {email: formik.values.email})
                 .then(res => {
-                    setResetDone(true);
+                    setResetDone("An email has been sent to you with a link to reset your password!");
                     formik.setSubmitting(false);
                 })
                 .catch(err => {
@@ -116,13 +137,14 @@ function LoginForm({token}: {token: string}) {
                         error={formik.touched.email && formik.errors.email && formik.errors.email.toString()}
                         value={formik.values.email}
                         spacing
-                        helperText={resetDone && "An email has been sent to you with a link to reset your password!"}
-                        success={resetDone}
+                        helperText={resetDone}
+                        success={resetDone !== ""}
                         onChange={formik.handleChange}
                         name="email"
                         label="Email"
                         icon={EmailIcon}
                     />
+                    
                     <PasswordInput
                         spacing
                         icon={PasswordIcon}
@@ -130,10 +152,16 @@ function LoginForm({token}: {token: string}) {
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                         value={formik.values.password}
                     />
-                    <div className="flex justify-end">
-                        <span tabIndex={0} role='button' onClick={handleReset} className="text-blue dark:hover:text-gray-400 cursor-pointer font-medium transition-colors hover:text-gray-800">
-                            Forgot Password?
-                        </span>
+                    <div className="flex justify-between">
+                            {formik.errors.email === "Your account email is not confirmed." ? (
+                                <span tabIndex={0} role='button' onClick={handleNewConfirmLink} className="text-blue dark:hover:text-gray-400 cursor-pointer font-bold transition-colors hover:text-gray-800">
+                                    Send new confirmation email! 
+                                </span>
+                            ) : (
+                                <span tabIndex={0} role='button' onClick={handleReset} className="text-blue ml-auto dark:hover:text-gray-400 cursor-pointer font-medium transition-colors hover:text-gray-800">
+                                    Forgot Password?
+                                </span>
+                            )}
                     </div>
                     <Button 
                         type="submit"
