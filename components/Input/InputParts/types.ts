@@ -10,7 +10,7 @@ export interface InputProps {
     autoComplete?: string,
     label?: string,
     placeholder?: string,
-    value?: string,
+    value?: string | Date | number,
     bar?: boolean,
     helperText?: string,
     spacing?: boolean,

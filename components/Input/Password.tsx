@@ -69,7 +69,7 @@ function PasswordInput({
                 onMouseOver={onMouseOver}
             />
             <HelperText error={error} helperText={helperText} success={success}/>
-            {bar && <PasswordBar value={value} />}
+            {bar && <PasswordBar value={value.toString()} />}
         </Wrapper>
     )
 }

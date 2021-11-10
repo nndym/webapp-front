@@ -10,7 +10,7 @@ interface Props {
     toggle?: boolean,
     type?: string,
     autoComplete?: string,
-    value?: string,
+    value?: string | Date | number,
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void,
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
@@ -72,7 +72,7 @@ function Base({
                 name={name} 
                 required={required}
                 type={show ? 'text' : type}
-                value={value}
+                value={value.toString()}
                 autoComplete={autoComplete}
                 onChange={onChange}
                 onBlur={onBlur}
