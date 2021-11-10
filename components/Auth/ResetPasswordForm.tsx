@@ -72,6 +72,7 @@ function ResetPasswordForm() {
                             bar
                             label="New Password"
                             name='password'
+                            autoComplete='new-password'
                             icon={PasswordIcon}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -82,6 +83,7 @@ function ResetPasswordForm() {
                             spacing
                             label="Confirm New Password"
                             name='passwordConfirmation'
+                            autoComplete='new-password'
                             icon={PasswordIconAlt}
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}

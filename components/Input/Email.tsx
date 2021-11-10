@@ -15,6 +15,7 @@ function EmailInput({
     helperText,
     required = false,
     spacing = false,
+    autoComplete,
     type = "email",
     value,
     onChange,
@@ -45,6 +46,7 @@ function EmailInput({
                 name={name}
                 id={id}
                 required={required}
+                autoComplete={autoComplete}
                 icon={icon} 
                 type={type}
                 value={value}

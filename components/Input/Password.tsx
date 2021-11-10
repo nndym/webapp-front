@@ -4,7 +4,6 @@ import HelperText from './InputParts/HelperText'
 import Label from './InputParts/Label'
 import { InputProps } from './InputParts/types'
 import Wrapper from './InputParts/Wrapper'
-import PasswordStrengthBar from 'react-password-strength-bar';
 import PasswordBar from './InputParts/PasswordBar'
 
 
@@ -20,6 +19,7 @@ function PasswordInput({
     spacing = false,
     value,
     success,
+    autoComplete,
     onChange,
     onBlur,
     onFocus,
@@ -55,6 +55,7 @@ function PasswordInput({
                 onChange={onChange}
                 onBlur={onBlur}
                 onFocus={onFocus}
+                autoComplete={autoComplete}
                 onKeyDown={onKeyDown}
                 onKeyUp={onKeyUp}
                 onKeyPress={onKeyPress}

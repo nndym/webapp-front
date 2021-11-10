@@ -141,6 +141,7 @@ function LoginForm({token}: {token: string}) {
                         success={resetDone !== ""}
                         onChange={formik.handleChange}
                         name="email"
+                        autoComplete="email"
                         label="Email"
                         icon={EmailIcon}
                     />
@@ -148,6 +149,7 @@ function LoginForm({token}: {token: string}) {
                     <PasswordInput
                         spacing
                         icon={PasswordIcon}
+                        autoComplete='current-password'
                         onChange={formik.handleChange}
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                         value={formik.values.password}
