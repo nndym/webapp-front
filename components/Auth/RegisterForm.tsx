@@ -39,7 +39,7 @@ const RegisterFormValidation = yup.object().shape({
 function RegisterForm() {
 
     const [done, setDone] = useState(null)
-    
+
     const formik = useFormik({
         validationSchema: RegisterFormValidation,
         initialValues: {
@@ -55,6 +55,7 @@ function RegisterForm() {
         onSubmit: (values, actions) => {
             api.post('auth/local/register', {
                 ...values,
+                username: values.email,
             })
             .then(res => {
                 setDone(res.data.user);
