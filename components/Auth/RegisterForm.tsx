@@ -1,4 +1,5 @@
 import Button from '@components/Button'
+import CheckboxInput from '@components/Input/Checkbox'
 import DateInput from '@components/Input/Date'
 import EmailInput from '@components/Input/Email'
 import PasswordInput from '@components/Input/Password'
@@ -32,6 +33,7 @@ const RegisterFormValidation = yup.object().shape({
                              .max(max_date, 'You must be at least 16.')
                              .min(min_date, 'Please enter a real age!')
                              .typeError('Please enter a valid date. '),
+    agree_terms: yup.boolean().oneOf([true], 'You must agree to the terms and conditions.'),
 })
 
 function RegisterForm() {
@@ -44,8 +46,10 @@ function RegisterForm() {
             username: '',
             first_name: '',
             last_name: '',
-            date_of_birth: new Date(new Date().getFullYear() - 16, new Date().getMonth(), new Date().getDate()),
+            date_of_birth: '',
             country: '',
+            agree_terms: false,
+            get_emails: false,
         },
         onSubmit: (values, actions) => {
             console.log(values);
@@ -62,40 +66,37 @@ function RegisterForm() {
             <FormikProvider value={formik}>
                 <Form className='my-4'>
                     <div className="grid  md:grid-cols-2 md:gap-4">
-                        <TextInput
-                            error={formik.touched.first_name && formik.errors.first_name && formik.errors.first_name.toString()}
-                            value={formik.values.first_name}
-                            spacing
-                            onChange={formik.handleChange}
-                            name="first_name"
-                            autoComplete="given-name"
-                            label="First Name"
-                            icon={NameIcon}
-                        />
-                        <TextInput
-                            error={formik.touched.last_name && formik.errors.last_name && formik.errors.last_name.toString()}
-                            value={formik.values.last_name}
-                            spacing
-                            onChange={formik.handleChange}
-                            autoComplete="family-name"
-                            name="last_name"
-                            label="Last Name"
-                            icon={NameIcon}
-                        />
-                    </div>
-                    <div className="grid md:grid-cols-2 md:gap-4">
-                        <DateInput
-                            error={formik.touched.date_of_birth && formik.errors.date_of_birth && formik.errors.date_of_birth as string}
-                            value={formik.values.date_of_birth}
-                            spacing
-                            onChange={formik.handleChange}
-                            name="date_of_birth"
-                            label="Date of Birth"
-                            type="date_of_birth"
-                            icon={DateOfBirthIcon}
-                        />
-                        <p>Country</p>
-                    </div>
+                    <TextInput
+                        error={formik.touched.first_name && formik.errors.first_name && formik.errors.first_name.toString()}
+                        value={formik.values.first_name}
+                        spacing
+                        onChange={formik.handleChange}
+                        name="first_name"
+                        autoComplete="given-name"
+                        label="First Name"
+                        icon={NameIcon}
+                    />
+                    <TextInput
+                        error={formik.touched.last_name && formik.errors.last_name && formik.errors.last_name.toString()}
+                        value={formik.values.last_name}
+                        spacing
+                        onChange={formik.handleChange}
+                        autoComplete="family-name"
+                        name="last_name"
+                        label="Last Name"
+                        icon={NameIcon}
+                    />
+                </div>
+                    <DateInput
+                        error={formik.touched.date_of_birth && formik.errors.date_of_birth && formik.errors.date_of_birth as string}
+                        value={formik.values.date_of_birth}
+                        spacing
+                        onChange={formik.handleChange}
+                        name="date_of_birth"
+                        label="Date of Birth"
+                        type="date_of_birth"
+                        icon={DateOfBirthIcon}
+                    />
                     <EmailInput
                         error={formik.touched.email && formik.errors.email && formik.errors.email.toString()}
                         value={formik.values.email}
@@ -118,7 +119,28 @@ function RegisterForm() {
                         value={formik.values.password}
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                     />
-                    <p>agree to t and c</p>
+                    <div className=' bg-gray-300 px-6 py-3 rounded-sm shadow-sm'>
+                        <CheckboxInput
+                            label="I agree to the terms and conditions"
+                            error={formik.touched.agree_terms && formik.errors.agree_terms && formik.errors.agree_terms.toString()}
+                            value={formik.values.agree_terms}
+                            spacing
+                            onChange={formik.handleChange}
+                            name="agree_terms"
+                            id="agree_terms"
+                            icon={EmailIcon}
+                        />
+                        <CheckboxInput
+                            label="I wish to receive updates and notifications about NNDYM."
+                            error={formik.touched.get_emails && formik.errors.get_emails && formik.errors.get_emails.toString()}
+                            value={formik.values.get_emails}
+                            spacing
+                            onChange={formik.handleChange}
+                            name="get_emails"
+                            id="get_emails"
+                            icon={EmailIcon}
+                        />
+                    </div>
                     <Button 
                         type="submit"
                         disabled={formik.isSubmitting}
