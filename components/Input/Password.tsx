@@ -36,7 +36,7 @@ function PasswordInput({
     onMouseOver,
 }: InputProps) {
     return (
-        <Wrapper spacing={spacing}>
+        <Wrapper spacing={error ? false : spacing}>
             <Label 
                 label={label} 
                 id={id} 

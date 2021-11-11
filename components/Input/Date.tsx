@@ -38,7 +38,7 @@ function DateInput({
     const inputRef = useRef(null)
 
     return (
-        <Wrapper spacing={spacing}>
+        <Wrapper spacing={error ? false : spacing}>
             <Label 
                 label={label} 
                 id={id} 
