@@ -5,16 +5,18 @@ interface Props {
     id: string,
     error?: string | boolean,
     required?: boolean,
+    noSpace?: boolean
 }
 
 function Label({
     label,
     id,
     error,
+    noSpace,
     required,
 }:Props) {
     return (
-        <label className={"my-1 dark:text-white" + (error ? ' text-red-500 ' : " text-black ")} htmlFor={id}>{label} {required && <span className='font-bold'>*</span>}</label>
+        <label className={"dark:text-white" + (error ? ' text-red-500 ' : " text-black ") + (noSpace ? " " : " my-1")} htmlFor={id}>{label} {required && <span className='font-bold'>*</span>}</label>
     )
 }
 

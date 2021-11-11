@@ -10,7 +10,7 @@ interface Props {
     toggle?: boolean,
     type?: string,
     autoComplete?: string,
-    value?: string | Date | number,
+    value?: string | Date | number | boolean,
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
     onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void,
     onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void,
