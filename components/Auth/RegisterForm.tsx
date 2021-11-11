@@ -5,9 +5,10 @@ import EmailInput from '@components/Input/Email'
 import PasswordInput from '@components/Input/Password'
 import TextInput from '@components/Input/Text'
 import { Form, FormikProvider, useFormik } from 'formik'
+import api from 'lib/api'
 import Link from 'next/link'
-import React from 'react'
-import { DateOfBirthIcon, EmailIcon, NameIcon, PasswordIcon } from 'static_data/icons'
+import React, { useState } from 'react'
+import { DateOfBirthIcon, EmailIcon, NameIcon, PasswordIcon, PasswordResetSuccess } from 'static_data/icons'
 import * as yup from 'yup';
 
 const max_date = new Date();
@@ -28,7 +29,6 @@ const RegisterFormValidation = yup.object().shape({
                  .required('Password is required.'),
     first_name: yup.string().required('First name is required.'),
     last_name: yup.string().required('Last name is required.'),
-    country: yup.string().required('Country is required.'),
     date_of_birth: yup.date().required('Date of birth is required.')
                              .max(max_date, 'You must be at least 16.')
                              .min(min_date, 'Please enter a real age!')
@@ -38,6 +38,8 @@ const RegisterFormValidation = yup.object().shape({
 
 function RegisterForm() {
 
+    const [done, setDone] = useState(null)
+    
     const formik = useFormik({
         validationSchema: RegisterFormValidation,
         initialValues: {
@@ -47,17 +49,37 @@ function RegisterForm() {
             first_name: '',
             last_name: '',
             date_of_birth: '',
-            country: '',
             agree_terms: false,
             get_emails: false,
         },
         onSubmit: (values, actions) => {
-            console.log(values);
-            actions.setSubmitting(false);            
+            api.post('auth/local/register', {
+                ...values,
+            })
+            .then(res => {
+                setDone(res.data.user);
+                actions.setSubmitting(false)
+            })
+            .catch(err => {
+                switch (err.response.status) {
+                    case 400:
+                        switch(err.response.data.message[0].messages[0].id) {
+                            case 'Auth.form.error.email.taken':
+                                actions.setFieldError('email', err.response.data.message[0].messages[0].message);
+                                break;
+                            default:
+                                actions.setFieldError('email', err.response.data.message[0].messages[0].message);
+                        }
+                        break;
+                    default:    
+                        actions.setFieldError('email', "Something has gone wrong, please try again later!");
+                }
+                actions.setSubmitting(false)
+            })
         }
     })
 
-    return (
+    return done === null ? (
         <div className="max-w-md">
             <h1 className="text-3xl font-medium dark:text-white">Register</h1>
             <span className='my-2 block dark:text-white '>
@@ -119,7 +141,7 @@ function RegisterForm() {
                         value={formik.values.password}
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                     />
-                    <div className=' bg-gray-300 px-6 py-3 rounded-sm shadow-sm'>
+                    <div className=' bg-gray-200 px-5 py-3 rounded-sm shadow-sm'>
                         <CheckboxInput
                             label="I agree to the terms and conditions"
                             error={formik.touched.agree_terms && formik.errors.agree_terms && formik.errors.agree_terms.toString()}
@@ -151,6 +173,24 @@ function RegisterForm() {
                     </Button>
                 </Form>
             </FormikProvider>
+        </div>
+    ) : (
+        <div>
+            <h1 className="text-3xl font-medium dark:text-white">Register</h1>
+            <span className='my-2 block dark:text-white '>
+                {"Verified your account?"} <Link href="/login"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Login In</a></Link> 
+            </span>
+            <div className='bg-white p-4 shadow-sm rounded-md'>
+                <p className="text-4xl text-green-600">
+                    <i className={PasswordResetSuccess}></i>
+                </p>
+                <p className="text-xl text-green-600 dark:text-white font-bold">
+                    {`Thank you for registering with NNDYM ${done.first_name}!  `}
+                </p>
+                <p className="text-md font-medium dark:text-white my-2">
+                    {`We have sent you an email with a verification link. Please click on the link to verify your account.`}
+                </p>
+            </div>
         </div>
     )
 }
