@@ -53,7 +53,11 @@ export async function getServerSideProps(context) {
         return {props: {}};
     }
 
-    return {}
+    return {
+        props:{
+            
+        }
+    }
   }
 
 
