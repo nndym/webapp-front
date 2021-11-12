@@ -37,7 +37,7 @@ function CheckboxInput({
             <div className="flex">
                 <div className='mr-1'>
                     <input
-                        className='m-1 ml-0 h-4 w-4'
+                        className='m-1 ml-0 h-3 w-3'
                         type="checkbox"
                         id={id} 
                         //@ts-ignore
