@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Footer from '@components/Auth/Footer'
 import RegisterForm from '@components/Auth/RegisterForm'
 import { getSession } from 'next-auth/client'
+import Banner from '@components/Auth/Banner'
 
 function Register() {
 
@@ -34,9 +35,7 @@ function Register() {
                     </div>
                     <Footer/>
                 </motion.div>
-                <div >
-                    {/* className="flex flex-col w-full h-full p-4 sm:p-8 md:p-16 lg:p-32" */}
-                </div>
+                <Banner/>
             </Split>
         </>
     )

@@ -11,7 +11,7 @@ function Split({children}: {children: React.ReactNode}) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1  }} 
                 transition={ { duration: 0.5, ease: 'easeInOut' } }
-                className="bg-blue min-h-screen sm:h-auto dark:bg-gray-800 lg:col-span-4 flex flex-col items-center justify-center"
+                className="bg-blue min-h-screen sm:h-auto dark:bg-gray-800 lg:col-span-4 flex flex-col items-center "
             >
                 {children[1]}
             </motion.div>
