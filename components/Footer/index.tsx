@@ -6,7 +6,7 @@ import { footer_links } from 'static_data/footer'
 
 function Footer() {
     return (
-        <footer className='w-full min-h-[220px] container m-auto mx-8 md:px-24 py-4'>
+        <footer className='w-full min-h-[220px] container sm:m-auto md:px-24 px-8 py-4'>
             <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-3">
                 {footer_links.sections.map((section, index) => (
                     <section key={index}>
@@ -27,7 +27,7 @@ function Footer() {
                     </section>
                 ))}
             </div>
-            <div className='mt-32'>
+            <div className=' mt-16 sm:mt-32'>
                 <Image onClick={()=>router.push("/")} width={45} height={45} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
                 <div className="my-4 md:flex">
                     <a target="_blank" className='mr-4' rel="noreferrer" href="https://vercel.com/?utm_source=[nndym]&utm_campaign=oss">
