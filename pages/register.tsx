@@ -6,6 +6,7 @@ import React from 'react'
 import Image from 'next/image'
 import Footer from '@components/Auth/Footer'
 import RegisterForm from '@components/Auth/RegisterForm'
+import { getSession } from 'next-auth/client'
 
 function Register() {
 
@@ -40,5 +41,20 @@ function Register() {
         </>
     )
 }
+
+export async function getServerSideProps(context) {
+
+    let session = await getSession(context)
+
+    if(!!session) {
+        const {res} = context
+        res.setHeader('location', '/account')
+        res.statusCode = 302;
+        return {props: {}};
+    }
+
+    return {}
+  }
+
 
 export default Register
