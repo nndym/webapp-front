@@ -1,4 +1,5 @@
 import Button from '@components/Button'
+import { motion } from 'framer-motion'
 import React from 'react'
 
 const data = [
@@ -36,7 +37,12 @@ function Banner() {
     return (
         <div className="w-[90%] md:h-screen relative flex flex-col justify-center py-16 md:py-0">
             <div className='md:fixed '>
-                <div className='w-64'>
+                <motion.div 
+                    className='w-64'
+                    initial={{ opacity: 0, y: -20 }}
+                    transition={{duration: 0.7}}
+                    animate={{ opacity: 1, y: 0 }}
+                >
                     <h2 className="text-4xl font-bold text-white">Become a Member</h2>
                     <p className="my-3">Join a engaging, caring and empowering community to seek your true potential.</p>
                     <div className='py-1'>
@@ -44,10 +50,38 @@ function Banner() {
                             Learn More
                         </Button>
                     </div>
-                </div>
-                <div className='mt-16 grid lg:grid-cols-2 gap-4'>
+                </motion.div>
+                <motion.div 
+                    className='mt-16 grid lg:grid-cols-2 gap-4'
+                    initial="closed"
+                    animate="open"
+                    transition={{delay: 2, duration: 0.5}}
+                    variants={{
+                        open:{
+                            opacity: 1,
+                            transition:{ staggerChildren: 0.6 }
+                        },
+                        closed:{
+                            opacity: 0,
+                        }
+                    }}
+                >
                     {data.map((item, index) => (
-                        <div key={index} className='flex'>
+                        <motion.div 
+                            key={index} 
+                            className='flex'
+                            transition={{duration: 0.5}}
+                            variants={{
+                                open:{
+                                    opacity: 1,
+                                    y: 0,
+                                },
+                                closed:{
+                                    opacity: 0,
+                                    y: 25,
+                                }
+                            }}
+                        >
                             <div>
                                 <div className={item.bg_color + " w-12 h-12 flex justify-center items-center rounded-full"}>
                                     <i className={item.icon + " text-2xl " + item.icon_color}></i>
@@ -57,9 +91,9 @@ function Banner() {
                                 <h6 className='font-bold'>{item.title}</h6>
                                 <p className="text-sm">{item.description}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div >
             </div>
         </div>
     )
