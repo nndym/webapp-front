@@ -33,7 +33,7 @@ const data = [
     },
 ]
 
-function Banner() {
+function Banner({login}:{login?:boolean}) {
     return (
         <div className="w-[90%] md:h-screen relative flex flex-col justify-center py-16 md:py-0">
             <div className='md:fixed '>
@@ -43,8 +43,8 @@ function Banner() {
                     transition={{duration: 0.7}}
                     animate={{ opacity: 1, y: 0 }}
                 >
-                    <h2 className="text-4xl font-bold text-white">Become a Member</h2>
-                    <p className="my-3">Join a engaging, caring and empowering community to seek your true potential.</p>
+                    <h2 className="text-4xl font-bold text-white">{login ? "Welcome back!" : "Become a Member" }</h2>
+                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." }</p>
                     <div className='py-1'>
                         <Button className='absolute' href="/account/info" color="black" size="medium" >
                             Learn More
