@@ -1,5 +1,5 @@
-import Button from '@components/Button'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import React from 'react'
 
 const data = [
@@ -36,7 +36,7 @@ const data = [
 function Banner({login}:{login?:boolean}) {
     return (
         <div className="w-[90%] md:h-screen relative flex flex-col justify-center py-16 md:py-0">
-            <div className='md:fixed '>
+            <div className='md:fixed max-w-[600px] pr-8 lg:pr-0 '>
                 <motion.div 
                     className='w-64'
                     initial={{ opacity: 0, y: -20 }}
@@ -44,12 +44,7 @@ function Banner({login}:{login?:boolean}) {
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <h2 className="text-4xl font-bold text-white">{login ? "Welcome back!" : "Become a Member" }</h2>
-                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." }</p>
-                    <div className='py-1'>
-                        <Button className='absolute' href="/account/info" color="black" size="medium" >
-                            Learn More
-                        </Button>
-                    </div>
+                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." } Learn more about having a <Link passHref href="/account/info"><a className="font-bold text-white underline hover:text-black transition-colors">NNDYM Account!</a></Link></p>
                 </motion.div>
                 <motion.div 
                     className='mt-16 grid lg:grid-cols-2 gap-4'
