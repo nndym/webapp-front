@@ -61,7 +61,7 @@ function Button({
     const renderThis = () => {
         return React.createElement(buttonType, {
             className: styles,
-            type: type === "link" ? null : type,
+            type: type === "link" || href ? null : type,
             name: name,
             disabled: disabled,
             whileHover: {

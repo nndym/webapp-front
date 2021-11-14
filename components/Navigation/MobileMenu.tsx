@@ -4,10 +4,12 @@ import MenuButton from "./MenuButton"
 import { menu_items_top } from "static_data/menu"
 import MenuItem from "./MenuItem"
 import Button from "@components/Button"
+import { useRouter } from "next/router"
 
 function MobileMenu({open, setOpen}) {
 
     const [hide, setHide] = useState(true)
+    const router = useRouter();
 
     useEffect(() => {
         if(open) {setHide(false)}
@@ -40,9 +42,9 @@ function MobileMenu({open, setOpen}) {
             onClick={()=>{setOpen(false)}}
             transition={{ duration: 0.4, ease: "easeInOut" }}
         >
-           <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full'>
+           <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full overflow-y-auto'>
                 <div className='flex justify-between p-4'>
-                    <h1 className="text-3xl p-2 font-bold text-blue">NNDYM</h1>
+                    <h1 onClick={()=>router.push("/")} className="text-3xl p-2 font-bold text-blue cursor-pointer">NNDYM</h1>
                     <MenuButton
                         open={open}
                         setOpen={()=>setOpen(false)}

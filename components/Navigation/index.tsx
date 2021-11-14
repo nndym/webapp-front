@@ -8,28 +8,30 @@ import MenuButton from './MenuButton';
 import { MenuProvider } from './Context';
 import MegaMenu from './MegaMenu';
 import Button from '@components/Button';
+import Image from 'next/image'
+import { useRouter } from 'next/router';
+
 
 function Navigation() {
 
     const { scrollY } = useViewportScroll();
+    const router = useRouter()
 
     const [moved, setMoved] = React.useState(false);
     const [open, setOpen] = React.useState(false);
 
     /** update the onChange callback to call for `update()` **/
-    React.useEffect(() => {
-        
+    React.useEffect(() => {     
         //@ts-ignore
-        if(scrollY?.current > 30) {
+        if(scrollY?.current > 1) {
             setMoved(true);
         }
 
         return scrollY.onChange(() => {
             //@ts-ignore
-            if (scrollY?.current < scrollY?.prev) {
+            if (scrollY?.current < 1) {
                 setMoved(false);
-            //@ts-ignore
-            } else if (scrollY?.current > 30 && scrollY?.current > scrollY?.prev) {
+            } else {
                 setMoved(true);
             }
         });
@@ -48,7 +50,7 @@ function Navigation() {
                 className="fixed w-full"
                 variants={variants}
                 animate={moved ? "moved" : "top"}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
             >
                 <div className=" container m-auto">
                     <motion.header 
@@ -67,7 +69,7 @@ function Navigation() {
                         }}
 
                     >
-                        <img width={55} alt="NNDYM Logo" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/")} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
