@@ -142,7 +142,7 @@ function RegisterForm() {
                         value={formik.values.password}
                         error={formik.touched.password && formik.errors.password && formik.errors.password.toString()}
                     />
-                    <div className=' bg-gray-200 px-5 py-3 rounded-sm shadow-sm'>
+                    <div>
                         <CheckboxInput
                             label="I agree to the terms and conditions"
                             error={formik.touched.agree_terms && formik.errors.agree_terms && formik.errors.agree_terms.toString()}
