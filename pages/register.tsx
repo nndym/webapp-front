@@ -8,6 +8,7 @@ import Footer from '@components/Auth/Footer'
 import RegisterForm from '@components/Auth/RegisterForm'
 import { getSession } from 'next-auth/client'
 import Banner from '@components/Auth/Banner'
+import Link from 'next/link'
 
 function Register() {
 
@@ -26,8 +27,10 @@ function Register() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={ { duration: 0.6, ease: "easeInOut" } }
                 >
-                    <div>
+                    <div className='flex'>
                         <span tabIndex={0} aria-label="Back" className="cursor-pointer text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-400 transition-colors" onClick={()=>router.back()}><i className="las la-arrow-left"></i> Back</span>
+                        <span className="mx-2">|</span>
+                        <Link href="/" passHref ><a className="cursor-pointer text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-400 transition-colors" >Home</a></Link>
                     </div>
                     <div className="my-8">
                         <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
