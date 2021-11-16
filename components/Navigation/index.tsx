@@ -49,6 +49,8 @@ function Navigation() {
             <motion.div 
                 className="fixed w-full"
                 variants={variants}
+                //@ts-ignore
+                initial={scrollY?.current > 1 ? 'moved' : 'top'}
                 animate={moved ? "moved" : "top"}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
             >
