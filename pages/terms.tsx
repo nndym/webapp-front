@@ -10,12 +10,12 @@ function Terms() {
     return (
         <>
            <Head>
-                <title>Terms and conditions - NNDYM</title>
+                <title>Terms and Conditions - NNDYM</title>
            </Head> 
            <Navigation/>
            <MainLayout>
                 <PageHeader
-                    cta="Terms & Conditions"
+                    cta="Terms and Conditions"
                     title="NNDYM"
                 />
                 <PageContainer>
