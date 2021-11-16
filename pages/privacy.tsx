@@ -6,16 +6,16 @@ import PageContainer from '@components/Page/Container'
 import Head from 'next/head'
 import React from 'react'
 
-function Terms() {
+function Privacy() {
     return (
         <>
            <Head>
-                <title>Terms and conditions - NNDYM</title>
+                <title>Privacy Policy - NNDYM</title>
            </Head> 
            <Navigation/>
            <MainLayout>
                 <PageHeader
-                    cta="Terms & Conditions"
+                    cta="Privacy Policy"
                     title="NNDYM"
                 />
                 <PageContainer>
@@ -104,4 +104,4 @@ function Terms() {
     )
 }
 
-export default Terms
+export default Privacy

@@ -6,16 +6,16 @@ import PageContainer from '@components/Page/Container'
 import Head from 'next/head'
 import React from 'react'
 
-function Terms() {
+function FairUse() {
     return (
         <>
            <Head>
-                <title>Terms and conditions - NNDYM</title>
+                <title>Fair Use Policy - NNDYM</title>
            </Head> 
            <Navigation/>
            <MainLayout>
                 <PageHeader
-                    cta="Terms & Conditions"
+                    cta="Fair Use Policy"
                     title="NNDYM"
                 />
                 <PageContainer>
@@ -28,21 +28,6 @@ function Terms() {
                         </p>
                         <p className='my-2'>
                             Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa.
-                        </p>
-                        <p className='my-2'>
-                           r malesuada nunc. Habitant morbi tristique senectus et netus et malesuada. 
-                        </p>
-                        <p className='my-2'>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus.
-                        </p>
-                        <p className='my-2'>
-                            Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa.
-                        </p>
-                        <p className='my-2'>
-                             malesuada nunc. Habitant morbi tristique senectus et netus et malesuada. 
-                        </p>
-                        <p className='my-2'>
-                            Leiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis cursus in hac habitasse platea dictumst quisque sagittis purus.
                         </p>
                         <p className='my-2'>
                             Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Velit euismod in pellentesque massa.
@@ -104,4 +89,4 @@ function Terms() {
     )
 }
 
-export default Terms
+export default FairUse

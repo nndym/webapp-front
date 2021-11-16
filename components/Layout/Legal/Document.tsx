@@ -4,7 +4,7 @@ import React from 'react'
 function LegalDocumentSection({children}: {children: React.ReactNode}) {
     return (
         <motion.div 
-            className='bg-white shadow-sm p-8 rounded-md'
+            className='bg-white shadow-sm p-4 md:p-8 rounded-md'
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
