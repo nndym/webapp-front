@@ -40,7 +40,7 @@ function Banner({login}:{login?:boolean}) {
                 <motion.div 
                     className='w-64'
                     initial={{ opacity: 0, y: -20 }}
-                    transition={{duration: 0.7}}
+                    transition={{duration: 0.7, type: "spring"}}
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <h2 className="text-4xl font-bold text-white">{login ? "Welcome back!" : "Become a Member" }</h2>
@@ -54,7 +54,7 @@ function Banner({login}:{login?:boolean}) {
                     variants={{
                         open:{
                             opacity: 1,
-                            transition:{ staggerChildren: 0.6 }
+                            transition:{ staggerChildren: 0.4 }
                         },
                         closed:{
                             opacity: 0,
@@ -65,7 +65,7 @@ function Banner({login}:{login?:boolean}) {
                         <motion.div 
                             key={index} 
                             className='flex'
-                            transition={{duration: 0.5}}
+                            transition={{duration: 0.6, type: "spring"}}
                             variants={{
                                 open:{
                                     opacity: 1,
