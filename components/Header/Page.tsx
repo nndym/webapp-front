@@ -1,3 +1,4 @@
+import PageContainer from '@components/Page/Container'
 import { motion } from 'framer-motion'
 import React from 'react'
 
@@ -6,7 +7,7 @@ function PageHeader({
     cta,
 }) {
     return (
-        <div className='container sm:m-auto md:px-24 px-8 py-4 flex flex-col items-start'>
+        <PageContainer>
             <motion.h6 
                 className='mt-12 font-bold '
                 initial={{ opacity: 0, y: 20 }}
@@ -19,7 +20,7 @@ function PageHeader({
                 animate={{ opacity: 1, y: 0}}
                 transition={ { duration: 0.7, delay:1, type: "spring" } }
             >{cta}</motion.h1>
-        </div>
+        </PageContainer>
     )
 }
 

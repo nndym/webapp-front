@@ -47,7 +47,7 @@ function Navigation() {
     return (
         <>
             <motion.div 
-                className="fixed w-full"
+                className="fixed w-full z-50"
                 variants={variants}
                 //@ts-ignore
                 initial={scrollY?.current > 1 ? 'moved' : 'top'}

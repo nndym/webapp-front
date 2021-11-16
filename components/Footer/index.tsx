@@ -6,7 +6,7 @@ import { footer_links } from 'static_data/footer'
 
 function Footer() {
     return (
-        <footer className='w-full min-h-[220px] container sm:m-auto md:px-24 px-8 py-4'>
+        <footer className='w-full min-h-[220px] container sm:m-auto md:px-24 px-8 py-4 pt-32'>
             <div className="grid lg:grid-cols-5 md:grid-cols-3 gap-3">
                 {footer_links.sections.map((section, index) => (
                     <section key={index}>
