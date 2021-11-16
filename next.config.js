@@ -6,7 +6,7 @@ module.exports = {
             {
               source: "/api/:path*",
               headers: [
-                {key: "Access-Control-Allow-Origin", value: "https://dev.nndym.org/,https://prod.nndym.org/"},
+                {key: "Access-Control-Allow-Origin", value: "*"},
               ]
             }
           ]
