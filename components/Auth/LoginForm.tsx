@@ -28,7 +28,7 @@ function LoginForm({token}: {token: string}) {
             password: ''
         },
         onSubmit: (values, actions) => {
-            axios.post('/api/auth/callback/credentials', {
+            axios.post('/api/auth/callback/credentials/', {
                 email: values.email,
                 password: values.password,
                 csrfToken: token
