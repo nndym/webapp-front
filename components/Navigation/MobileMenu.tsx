@@ -34,7 +34,7 @@ function MobileMenu({open, setOpen}) {
         <motion.div
             variants={variants}
             animate={open ? "open" : "closed"}
-            className={'fixed w-full h-full p-6' + (hide ? ' hidden' : ' block')}
+            className={'fixed w-full h-full p-6 z-50' + (hide ? ' hidden' : ' block')}
             initial={variants.closed}
             onAnimationComplete={definition => {
                 if(definition === "closed") setHide(true)
