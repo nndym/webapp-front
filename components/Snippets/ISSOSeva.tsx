@@ -10,7 +10,7 @@ function ISSOSevaSnippet() {
         <PageContainer>
             <motion.div 
                 initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                transition={{duration: 0.7, delay: 0.5, type: "spring"}}
+                transition={{duration: 0.7, type: "spring"}}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 className='grid md:grid-cols-3 my-4 gap-8 bg-gray-200 shadow-md hover:shadow-lg transition-shadow p-8 rounded-md'
             >
