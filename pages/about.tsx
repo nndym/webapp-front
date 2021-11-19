@@ -4,6 +4,7 @@ import Navigation from '@components/Navigation'
 import Head from 'next/head'
 import React from 'react'
 import about_us_image from '@images/about_us.jpg'
+import AccountSnippet from '@components/Snippets/Account'
 
 function AboutUs() {
     return (
@@ -20,6 +21,7 @@ function AboutUs() {
                     image={about_us_image}
                     alt='Happy people infront of a tent holding a sign.'
                />
+               <AccountSnippet/>
            </MainLayout>
         </>
     )

@@ -1,32 +1,40 @@
+import Button from '@components/Button'
+import PageContainer from '@components/Page/Container'
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import React from 'react'
 import { account_info_data } from 'static_data/account_info'
 
-
-
-function Banner({login}:{login?:boolean}) {
+function AccountSnippet() {
     return (
-        <div className="w-[90%] md:h-screen relative flex flex-col justify-center py-16 md:py-0">
-            <div className='md:fixed max-w-[600px] pr-8 lg:pr-0 '>
+        <PageContainer>
+            <motion.div 
+                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                transition={{duration: 0.7, type: "spring"}}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                className='grid md:grid-cols-3 my-4 gap-8 bg-gray-200 shadow-md p-8 rounded-md'
+            >
                 <motion.div 
-                    className='w-64'
+                    className='flex flex-col items-start justify-center'
                     initial={{ opacity: 0, y: -20 }}
                     transition={{duration: 0.7, type: "spring"}}
                     animate={{ opacity: 1, y: 0 }}
                 >
-                    <h2 className="text-4xl font-bold text-white">{login ? "Welcome back!" : "Become a Member" }</h2>
-                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." } Learn more about having a <Link passHref href="/account/info"><a className="font-bold text-white underline hover:text-black transition-colors">NNDYM Account!</a></Link></p>
+                    <h5 className='text-blue text-4xl font-bold' >Become a member</h5>
+                    <p className='py-2'>Join a engaging, caring and empowering community to seek your true potential.</p>
+                    <Button size="medium" href='/account/info/'>
+                        Learn More
+                    </Button>
+                    <h6 className="text-2xl py-2 uppercase font-semibold">100% Free</h6>
                 </motion.div>
                 <motion.div 
-                    className='mt-16 grid lg:grid-cols-2 gap-4'
+                    className='grid lg:grid-cols-2 gap-4 col-span-2'
                     initial="closed"
                     animate="open"
                     transition={{delay: 2, duration: 0.5}}
                     variants={{
                         open:{
                             opacity: 1,
-                            transition:{ staggerChildren: 0.4 }
+                            transition:{ staggerChildren: 0.2 }
                         },
                         closed:{
                             opacity: 0,
@@ -37,7 +45,7 @@ function Banner({login}:{login?:boolean}) {
                         <motion.div 
                             key={index} 
                             className='flex'
-                            transition={{duration: 0.6, type: "spring"}}
+                            transition={{duration: 0.4, type: "spring"}}
                             variants={{
                                 open:{
                                     opacity: 1,
@@ -61,9 +69,9 @@ function Banner({login}:{login?:boolean}) {
                         </motion.div>
                     ))}
                 </motion.div >
-            </div>
-        </div>
+            </motion.div>
+        </PageContainer>
     )
 }
 
-export default Banner
+export default AccountSnippet
