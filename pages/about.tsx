@@ -5,6 +5,7 @@ import Head from 'next/head'
 import React from 'react'
 import about_us_image from '@images/about_us.jpg'
 import AccountSnippet from '@components/Snippets/Account'
+import QuoteSnippet from '@components/Snippets/Quote'
 
 function AboutUs() {
     return (
@@ -21,6 +22,7 @@ function AboutUs() {
                     image={about_us_image}
                     alt='Happy people infront of a tent holding a sign.'
                />
+               <QuoteSnippet/>
                <AccountSnippet/>
            </MainLayout>
         </>
