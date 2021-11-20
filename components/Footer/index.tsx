@@ -17,7 +17,7 @@ function Footer() {
                                     {link.external ? (
                                         <a target='_blank' rel="noreferrer" href={link.link}>{link.name}</a>
                                     ) : (
-                                        <Link href={link.link} passHref>
+                                        <Link scroll={false} href={link.link} passHref>
                                             <a>{link.name}</a>
                                         </Link>
                                     )}

@@ -75,6 +75,7 @@ function Button({
 
     return href !== undefined || type === "link" ? (
         <Link 
+            scroll={false}
             href={href || ''}
             passHref  
         >
