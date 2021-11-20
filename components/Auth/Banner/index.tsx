@@ -1,37 +1,9 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
+import { account_info_data } from 'static_data/account_info'
 
-const data = [
-    {
-        title: "Exclusive Content",
-        description: "Gain access to all the awesome stuff that isn't freely available, right at your finger tips",
-        icon: "lab la-fort-awesome",
-        bg_color: "bg-red-400",
-        icon_color: "text-red-800",
-    },
-    {
-        title: "Early Sign Up's",
-        description: "Always late to the party? we reserve spots for all members so that you get first pick at all our events!",
-        icon: "las la-pen-fancy",
-        bg_color: "bg-green-400",
-        icon_color: "text-green-800",
-    },
-    {
-        title: "Seva Opportunities",
-        description: "Want to help but don't ever know when or where? well pick from our wide range of opptruntites.",
-        icon: "las la-people-carry",
-        bg_color: "bg-purple-400",
-        icon_color: "text-purple-800",
-    },
-    {
-        title: "Exclusive Events",
-        description: "Don't have #FOMO we host special events just for you!",
-        icon: "las la-calendar-day",
-        bg_color: "bg-pink-400",
-        icon_color: "text-pink-900",
-    },
-]
+
 
 function Banner({login}:{login?:boolean}) {
     return (
@@ -40,11 +12,11 @@ function Banner({login}:{login?:boolean}) {
                 <motion.div 
                     className='w-64'
                     initial={{ opacity: 0, y: -20 }}
-                    transition={{duration: 0.7}}
+                    transition={{duration: 0.7, type: "spring"}}
                     animate={{ opacity: 1, y: 0 }}
                 >
                     <h2 className="text-4xl font-bold text-white">{login ? "Welcome back!" : "Become a Member" }</h2>
-                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." } Learn more about having a <Link passHref href="/account/info"><a className="font-bold text-white underline hover:text-black transition-colors">NNDYM Account!</a></Link></p>
+                    <p className="my-3">{login ? "We are proud to have you as part of our community, let's seek your true potential." : "Join a engaging, caring and empowering community to seek your true potential." } Learn more about having a <Link scroll={false} passHref href="/account/info"><a className="font-bold text-white underline hover:text-black transition-colors">NNDYM Account!</a></Link></p>
                 </motion.div>
                 <motion.div 
                     className='mt-16 grid lg:grid-cols-2 gap-4'
@@ -54,18 +26,18 @@ function Banner({login}:{login?:boolean}) {
                     variants={{
                         open:{
                             opacity: 1,
-                            transition:{ staggerChildren: 0.6 }
+                            transition:{ staggerChildren: 0.4 }
                         },
                         closed:{
                             opacity: 0,
                         }
                     }}
                 >
-                    {data.map((item, index) => (
+                    {account_info_data.map((item, index) => (
                         <motion.div 
                             key={index} 
                             className='flex'
-                            transition={{duration: 0.5}}
+                            transition={{duration: 0.6, type: "spring"}}
                             variants={{
                                 open:{
                                     opacity: 1,

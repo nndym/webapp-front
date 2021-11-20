@@ -28,7 +28,7 @@ function LoginForm({token}: {token: string}) {
             password: ''
         },
         onSubmit: (values, actions) => {
-            axios.post('/api/auth/callback/credentials', {
+            axios.post('/api/auth/callback/credentials/', {
                 email: values.email,
                 password: values.password,
                 csrfToken: token
@@ -42,11 +42,11 @@ function LoginForm({token}: {token: string}) {
                     let findError = res.request.responseURL.split('error=');
                     if(findError[1] === undefined) {
                         if(window.location.search === ""){
-                            router.push("/");
+                            router.push("/", undefined, {scroll:false});
                         } else {
                             url = new URLSearchParams(window.location.search);
                             let callback = url.get('callbackUrl');
-                            router.push(callback);
+                            router.push(callback, undefined, {scroll:false});
                         }
                     }
                     else {
@@ -128,7 +128,7 @@ function LoginForm({token}: {token: string}) {
         <div className="max-w-md">
             <h1 className="text-3xl font-medium dark:text-white">Login</h1>
             <span className='my-2 block dark:text-white '>
-                {"Don't have an account?"} <Link href="/register"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Sign Up</a></Link> 
+                {"Don't have an account?"} <Link scroll={false} href="/register"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Sign Up</a></Link> 
             </span>
 
             <FormikProvider value={formik}>

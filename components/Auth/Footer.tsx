@@ -10,22 +10,22 @@ function Footer() {
             </a>
             <ul className='sm:flex mt-1'>
                 <li className="mb-1 mr-4 text-sm hover:text-blue transition-colors">
-                    <Link href="/cookies" passHref>
+                    <Link scroll={false} href="/cookies" passHref>
                         <a>Cookie Policy</a>
                     </Link>
                 </li>
                 <li className="mb-1 mr-4 text-sm hover:text-blue transition-colors">
-                    <Link href="/fairuse" passHref>
+                    <Link scroll={false} href="/fairuse" passHref>
                         <a>Fair Use Policy</a>
                     </Link>
                 </li>
                 <li className="mb-1 mr-4 text-sm hover:text-blue transition-colors">
-                    <Link href="/privacy" passHref>
+                    <Link scroll={false} href="/privacy" passHref>
                         <a>Privacy Policy</a>
                     </Link>
                 </li>
                 <li className="mb-1 mr-4 text-sm hover:text-blue transition-colors">
-                    <Link href="/terms" passHref>
+                    <Link scroll={false} href="/terms" passHref>
                         <a>Terms & Conditions</a>
                     </Link>
                 </li>

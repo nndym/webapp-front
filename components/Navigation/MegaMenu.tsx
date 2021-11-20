@@ -40,9 +40,11 @@ function MegaMenu() {
     const variants_display = {
         closed : {
             opacity: 0,
+            y: -20
         },
         open : {
             opacity: 1,
+            y:0
         }
     }
 
@@ -56,7 +58,7 @@ function MegaMenu() {
             onHoverEnd={()=>{
                 timeout.current = setTimeout(() => {
                     setDisplay(false)
-                }, 800);
+                }, 400);
             }}
             onAnimationComplete={definition => {
                 if(definition === "closed") {
@@ -65,11 +67,12 @@ function MegaMenu() {
                 } else {
                     timeout_animate.current = setTimeout(() => {
                         setDisplay(false)
-                    } , 800);
+                    } , 400);
                 }
             }}
             variants={variants_display}
             initial={variants_display.closed}
+            transition={{duration: 0.5, type: "spring"}}
             custom={findSize()}
             animate={findVariant()}
             className={"w-full mt-14 absolute left-0 " + (hide ? 'hidden' : '')}

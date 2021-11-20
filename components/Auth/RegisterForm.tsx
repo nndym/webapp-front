@@ -179,7 +179,7 @@ function RegisterForm() {
         <div>
             <h1 className="text-3xl font-medium dark:text-white">Register</h1>
             <span className='my-2 block dark:text-white '>
-                {"Verified your account?"} <Link href="/login"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Login In</a></Link> 
+                {"Verified your account?"} <Link scroll={false} href="/login"><a className="text-blue font-medium transition-colors  dark:hover:text-gray-400 hover:text-gray-800">Login In</a></Link> 
             </span>
             <div className='bg-white p-4 shadow-sm rounded-md'>
                 <p className="text-4xl text-green-600">

@@ -47,29 +47,18 @@ function Navigation() {
     return (
         <>
             <motion.div 
-                className="fixed w-full"
+                className="fixed w-full z-50"
                 variants={variants}
+                //@ts-ignore
+                initial={scrollY?.current > 1 ? 'moved' : 'top'}
                 animate={moved ? "moved" : "top"}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
             >
                 <div className=" container m-auto">
-                    <motion.header 
+                    <div
                         className="flex justify-between pt-6 pb-6 mx-8 items-center "
-                        initial={{
-                            opacity: 0,
-                            y: -40
-                        }}
-                        animate={{
-                            opacity: 1,
-                            y: 0
-                        }}
-                        transition={{
-                            duration: 0.8,
-                            ease: "easeInOut"
-                        }}
-
                     >
-                        <Image onClick={()=>router.push("/")} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/", undefined, {scroll:false})} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (
@@ -98,7 +87,7 @@ function Navigation() {
                                 open={open} 
                             />
                         </div>
-                    </motion.header>
+                    </div>
                 </div>
             </motion.div>
             <MobileMenu

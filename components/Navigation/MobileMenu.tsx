@@ -34,7 +34,7 @@ function MobileMenu({open, setOpen}) {
         <motion.div
             variants={variants}
             animate={open ? "open" : "closed"}
-            className={'fixed w-full h-full p-6' + (hide ? ' hidden' : ' block')}
+            className={'fixed w-full h-full p-6 z-50' + (hide ? ' hidden' : ' block')}
             initial={variants.closed}
             onAnimationComplete={definition => {
                 if(definition === "closed") setHide(true)
@@ -44,7 +44,7 @@ function MobileMenu({open, setOpen}) {
         >
            <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full overflow-y-auto'>
                 <div className='flex justify-between p-4'>
-                    <h1 onClick={()=>router.push("/")} className="text-3xl p-2 font-bold text-blue cursor-pointer">NNDYM</h1>
+                    <h1 onClick={()=>router.push("/", undefined, {scroll:false})} className="text-3xl p-2 font-bold text-blue cursor-pointer">NNDYM</h1>
                     <MenuButton
                         open={open}
                         setOpen={()=>setOpen(false)}

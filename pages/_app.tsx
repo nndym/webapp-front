@@ -1,16 +1,25 @@
 import App from "next/app";
 import Head from "next/head";
 import { fetchAPI } from '../lib/api';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getStrapiMedia } from '../lib/media';
 import '../styles/globals.css'
 import { Provider } from 'next-auth/client'
+import { useRouter } from "next/router";
 
 export const GlobalContext = React.createContext({});
 
 function MyApp({ Component, pageProps }) {
 
   const {global} = pageProps;
+
+  const { pathname } = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }, 100);
+  }, [pathname]);
 
   return (
     <Provider session={pageProps.session}>
