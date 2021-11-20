@@ -17,6 +17,7 @@ import { motion } from 'framer-motion'
 import SplitLayout from '@components/Layout/Split'
 import Button from '@components/Button'
 import Image from 'next/image'
+import BasicTiles from '@components/Tiles/Basic'
 
 
 const data = [
@@ -82,24 +83,10 @@ function AboutUs() {
                         title="What is NNDYM?"
                         text="NNDYM was founded by His Holiness 1008 Acharyashri Koshalendraprasadji Maharaj in 1994 with its headquarters at Shree Swaminarayan Mandir, Kalupur, Ahmedabad."
                    />
-                   <motion.div 
-                        className='text-center grid md:grid-cols-3 my-6 mt-16 gap-4 '
-                        initial={{ opacity: 0, y: -20, scale: 0.9 }}
-                        transition={{duration: 0.7, type: "spring"}}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                    >
-                       {data.map((item, index) => (
-                           <div key={index} className='p
-                           -4 rounded-md hover:shadow-sm transition-shadow'>
-                                <h6 className='text-2xl font-bold'>
-                                    {item.title}
-                                </h6>
-                                <p>
-                                    {item.text}
-                                </p>
-                            </div>
-                       ))}
-                   </motion.div>
+                   <BasicTiles
+                        data={data}
+                        pushTop
+                   />
                    {about_data.map((item, index) => (
                        <SplitLayout
                             key={index}

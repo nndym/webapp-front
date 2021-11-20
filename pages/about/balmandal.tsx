@@ -8,6 +8,8 @@ import AccountSnippet from '@components/Snippets/Account'
 import PageContainer from '@components/Page/Container'
 import CenterPointHeader from '@components/Header/CenterPoint'
 import Tiles from '@components/Tiles'
+import BasicTiles from '@components/Tiles/Basic'
+import QuoteSnippet from '@components/Snippets/Quote'
 
 function BalMandal() {
     return (
@@ -65,7 +67,41 @@ function BalMandal() {
                             }
                         ]}
                     />
+                    <CenterPointHeader
+                        title="Opperating World Wide"
+                        text="NNDYM Bal Mandal classes are span the whole globe."
+                        pushTop
+                    />
+                    <BasicTiles
+                        data={[
+                            {
+                                title: "India",
+                                text: "Original started here and been going strong ever since",
+                            },
+                            {
+                                title: "United States",
+                                text: "Operating since 1994 these classes have raised many generations.",
+                            },
+                            {
+                                title: "Europe",
+                                text: "With the many families living on this side of planet it was a no brainer",
+                            },
+                            {
+                                title: "Africa",
+                                text: "amet, placerat magna. Morbi condimentum hendrerit tellus sed tempor. Quisque id sollicitudin dolor, quis pharetra odio. Nullam laoreet felis nulla. Sed placerat v",
+                            },
+                            {
+                                title: "Australia",
+                                text: "Etiam non rhoncus odio. Morbi non neque rhoncus, consequat turpis sit amet, placer",
+                            },
+                            {
+                                title: "New Zealand",
+                                text: "Kiwis...",
+                            },
+                        ]}
+                    />
                 </PageContainer>
+                <QuoteSnippet/>
                 <AccountSnippet/>
             </MainLayout>
         </>
