@@ -58,7 +58,7 @@ function Navigation() {
                     <div
                         className="flex justify-between pt-6 pb-6 mx-8 items-center "
                     >
-                        <Image onClick={()=>router.push("/")} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/", undefined, {scroll:false})} className="cursor-pointer" width={55} height={55} alt="NNDYM Logo" src="/logo.svg" />
                         <MenuProvider>
                             <nav className='hidden md:flex'>
                                 {menu_items_top.map((item, index) => item.big ? (

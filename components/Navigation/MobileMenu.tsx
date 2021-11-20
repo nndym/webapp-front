@@ -44,7 +44,7 @@ function MobileMenu({open, setOpen}) {
         >
            <div onClick={(e)=>{e.stopPropagation()}} className='bg-white shadow-md rounded-lg h-full overflow-y-auto'>
                 <div className='flex justify-between p-4'>
-                    <h1 onClick={()=>router.push("/")} className="text-3xl p-2 font-bold text-blue cursor-pointer">NNDYM</h1>
+                    <h1 onClick={()=>router.push("/", undefined, {scroll:false})} className="text-3xl p-2 font-bold text-blue cursor-pointer">NNDYM</h1>
                     <MenuButton
                         open={open}
                         setOpen={()=>setOpen(false)}

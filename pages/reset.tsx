@@ -31,7 +31,7 @@ function ResetPassword() {
                         </Link>
                     </div>
                     <div className="my-8">
-                        <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/", undefined, {scroll:false})} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
                         <ResetPasswordForm />
                     </div>
                     <Footer/>

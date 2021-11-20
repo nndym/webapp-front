@@ -42,11 +42,11 @@ function LoginForm({token}: {token: string}) {
                     let findError = res.request.responseURL.split('error=');
                     if(findError[1] === undefined) {
                         if(window.location.search === ""){
-                            router.push("/");
+                            router.push("/", undefined, {scroll:false});
                         } else {
                             url = new URLSearchParams(window.location.search);
                             let callback = url.get('callbackUrl');
-                            router.push(callback);
+                            router.push(callback, undefined, {scroll:false});
                         }
                     }
                     else {

@@ -34,7 +34,7 @@ function Login({ csrfToken }) {
                         <Link scroll={false} href="/" passHref ><a className="cursor-pointer text-gray-500 dark:text-white hover:text-black dark:hover:text-gray-400 transition-colors" >Home</a></Link>
                     </div>
                     <div className="my-8">
-                        <Image onClick={()=>router.push("/")} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
+                        <Image onClick={()=>router.push("/", undefined, {scroll:false})} width={55} height={55} alt="NNDYM Logo" className="cursor-pointer" src="/logo.svg" />
                         <LoginForm token={csrfToken}/>
                     </div>
                     <Footer/>
