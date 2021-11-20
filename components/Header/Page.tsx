@@ -2,6 +2,7 @@ import PageContainer from '@components/Page/Container'
 import { motion } from 'framer-motion'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface Props {
     children?: React.ReactNode
@@ -10,6 +11,10 @@ interface Props {
     half?: boolean
     subtitle?: string,
     image?: any,
+    breadcrumbs?: {
+        title: string,
+        link: string
+    },
     alt?: string,
 }
 
@@ -18,9 +23,11 @@ function PageHeader({
     cta,
     half,
     subtitle,
+    breadcrumbs,
     image,
     alt,
 }: Props) {
+
     return (
         <PageContainer half={half || !!image}>
             <div>
@@ -29,7 +36,7 @@ function PageHeader({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={ { duration: 0.7, delay: 0.6, type: "spring" } }
-                >{title}</motion.h6>
+                >{breadcrumbs && <Link passHref href={breadcrumbs.link}><a className='hover:text-blue transition-colors'>{breadcrumbs.title} / </a></Link>}{title}</motion.h6>
                 <motion.h1 
                     className='font-bold my-2 text-4xl text-blue'
                     initial={{ opacity: 0, y: 20 }}
