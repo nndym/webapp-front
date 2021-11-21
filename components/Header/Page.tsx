@@ -36,7 +36,11 @@ function PageHeader({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={ { duration: 0.7, delay: 0.6, type: "spring" } }
-                >{breadcrumbs && <Link scroll={false} passHref href={breadcrumbs.link}><a className='hover:text-blue transition-colors'>{breadcrumbs.title} / </a></Link>}{title}</motion.h6>
+                >{breadcrumbs && (
+                    <nav className='inline-block mr-2' aria-label="Breadcrumb">
+                        <Link scroll={false} passHref href={breadcrumbs.link}><a className='hover:text-blue transition-colors'>{breadcrumbs.title} / </a></Link>
+                    </nav>
+                )}{title}</motion.h6>
                 <motion.h1 
                     className='font-bold my-2 text-4xl text-blue'
                     initial={{ opacity: 0, y: 20 }}
