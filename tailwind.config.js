@@ -8,7 +8,8 @@ module.exports = {
         'roboto': ['Roboto', 'sans-serif'],
       },
       colors: {
-        'blue': "#189EFE"
+        'blue': "#189EFE",
+        'purple': "#2E3192"
       },
       animation: {
         'fade-in': 'fade-in 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both',
