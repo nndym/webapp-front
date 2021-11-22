@@ -59,7 +59,7 @@ function ContactUsForm() {
                 </>
             ) : (
                 <>  
-                    <h5 className='text-center text-blue font-bold text-xl'>{"Let's chat!"}</h5>
+                    <h5 className='text-center text-purple font-bold text-xl'>{"Let's chat!"}</h5>
                     <p className='text-center mb-8 font-light'>No question is a bad question, let’s hear it!</p>
                     <FormikProvider value={formik}>
                         <Form>
