@@ -7,6 +7,7 @@ import teams_world from '@images/teams_earth.png'
 import JoinTheTeamSnippet from '@components/Snippets/JoinTheTeam'
 import PageContainer from '@components/Page/Container'
 import Tiles from '@components/Tiles'
+import WhatIsNNDYMSnippet from '@components/Snippets/WhatIsNNDYM'
 
 function Team() {
     return (
@@ -23,6 +24,7 @@ function Team() {
                     alt="Earth"
                     image={teams_world}
                 />
+                <WhatIsNNDYMSnippet/>
                 <PageContainer>
                     <Tiles
                         title="Opperating World Wide"
