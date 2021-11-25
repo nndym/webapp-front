@@ -53,7 +53,7 @@ function JoinTheTeamSnippet() {
                 >
                     <h5 className='text-blue text-4xl font-bold' >Join the team!</h5>
                     <p className='py-2'>It takes a lot of people to run NNDYM and we are always looking for new faces and fresh ideas. Let us know how you can help!</p>
-                    <Button size="medium" href='/account/info/'>
+                    <Button size="medium" href='/apply/'>
                         Learn More
                     </Button>
                 </motion.div>
