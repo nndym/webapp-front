@@ -10,6 +10,7 @@ import CenterPointHeader from '@components/Header/CenterPoint'
 import Tiles from '@components/Tiles'
 import BasicTiles from '@components/Tiles/Basic'
 import QuoteSnippet from '@components/Snippets/Quote'
+import JoinTheTeamSnippet from '@components/Snippets/JoinTheTeam'
 
 function BalMandal() {
     return (
@@ -101,6 +102,7 @@ function BalMandal() {
                         ]}
                     />
                 </PageContainer>
+                <JoinTheTeamSnippet/>
                 <QuoteSnippet/>
                 <AccountSnippet/>
             </MainLayout>

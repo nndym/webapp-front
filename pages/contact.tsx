@@ -8,6 +8,7 @@ import PageContainer from '@components/Page/Container'
 import AccountSnippet from '@components/Snippets/Account'
 import ISSOSevaSnippet from '@components/Snippets/ISSOSeva'
 import QuoteSnippet from '@components/Snippets/Quote'
+import WhatIsNNDYMSnippet from '@components/Snippets/WhatIsNNDYM'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -118,6 +119,7 @@ function ContactUs() {
                 </div>
                 
                 </PageContainer>
+                <WhatIsNNDYMSnippet/>
                 <AccountSnippet/>
                 <QuoteSnippet/>
                 <ISSOSevaSnippet/>

@@ -19,6 +19,7 @@ import Button from '@components/Button'
 import Image from 'next/image'
 import BasicTiles from '@components/Tiles/Basic'
 import { about_us_data } from 'static_data/about'
+import JoinTheTeamSnippet from '@components/Snippets/JoinTheTeam'
 
 
 
@@ -104,6 +105,7 @@ function AboutUs() {
                    ))}
                </PageContainer>
                <ISSOSevaSnippet/>
+               <JoinTheTeamSnippet/>
                <QuoteSnippet/>
                <AccountSnippet/>
            </MainLayout>
