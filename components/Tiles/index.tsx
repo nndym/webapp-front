@@ -1,3 +1,4 @@
+import Button from '@components/Button';
 import { motion } from 'framer-motion';
 import React from 'react'
 
@@ -15,6 +16,7 @@ function Tiles({data, title}:{
         title: string,
         text: string,
         image?: string,
+        link?: string,
     }>,
     title: string,
 }) {
@@ -30,13 +32,16 @@ function Tiles({data, title}:{
         >
             {tiles.map((tile, index) => (
                 <div key={index}>
-                    {index === 0 && <h2 className='text-4xl mb-6 font-bold text-blue'>{title}</h2>}
+                    {index === 0 && <h2 className='text-5xl md:w-3/4 mb-6 font-bold text-blue'>{title}</h2>}
                     {tiles[index].map((item, i) => (
-                        <div key={i} className='bg-white mb-4 hover:bg-blue p-8 shadow-sm hover:shadow-md transition-all hover:text-white'>
-                            <h5 className='font-bold text-2xl'>{item.title}</h5>
+                        <div key={i} className='bg-white mb-4 hover:bg-blue p-8 shadow-sm group hover:shadow-md transition-all hover:text-white'>
+                            <h5 className='font-bold text-2xl text-blue group-hover:text-white transition-colors'>{item.title}</h5>
                             <p className="font-light">
                                 {item.text}
                             </p>
+                            {item.link && <div className='flex my-2'>
+                                <Button color='black' href={item.link}>Learn More</Button>
+                            </div>}
                         </div>
                     ))}
                 </div>
