@@ -18,22 +18,10 @@ import SplitLayout from '@components/Layout/Split'
 import Button from '@components/Button'
 import Image from 'next/image'
 import BasicTiles from '@components/Tiles/Basic'
+import { about_us_data } from 'static_data/about'
 
 
-const data = [
-    {
-        title: 'Founded in 1994',
-        text: "by His Holiness 1008 Acharyashri Koshalendraprasadji Maharaj"
-    },
-    {
-        title: '250,000 + members',
-        text: "having more than 200,000 members in India and over 30,000 overseas."
-    },
-    {
-        title: '15+ Annual Events',
-        text: "Camps, Conferences, Sabhas, Navratri, Sports days, you name it!"
-    },
-]
+
 
 const about_data = [
     {
@@ -84,7 +72,7 @@ function AboutUs() {
                         text="NNDYM was founded by His Holiness 1008 Acharyashri Koshalendraprasadji Maharaj in 1994 with its headquarters at Shree Swaminarayan Mandir, Kalupur, Ahmedabad."
                    />
                    <BasicTiles
-                        data={data}
+                        data={about_us_data}
                         pushTop
                    />
                    {about_data.map((item, index) => (
