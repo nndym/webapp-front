@@ -6,36 +6,43 @@ export const footer_links = {
                 {
                     name: "Instagram",
                     link: "https://www.instagram.com/officialnndym/?hl=en",
+                    icon: "lab la-instagram",
                     external: true,
                 },
                 {
                     name: 'Facebook',
                     link: 'https://www.facebook.com/officialnndym/',
+                    icon: 'lab la-facebook',
                     external: true,
                 },
                 {
                     name: 'Twitter',
                     link: 'https://twitter.com/officialnndym?lang=en',
+                    icon: 'lab la-twitter',
                     external: true,
                 },
                 {
                     name: 'Youtube',
                     link: 'https://www.youtube.com/channel/UC8p4em51J4zPnumhHfGiADA',
+                    icon: 'lab la-youtube',
                     external: true,
                 },
                 {
                     name: 'Pintrest',
                     link: 'https://www.pinterest.nz/officialnndym/',
+                    icon: 'lab la-pinterest',
                     external: true,
                 },
                 {
                     name: 'LinkedIn',
                     link: 'https://linkedin.com/company/nndym',
+                    icon: 'lab la-linkedin',
                     external: true,
                 },
                 {
                     name: 'GitHub',
                     link: 'https://github.com/nndym',
+                    icon: 'lab la-github',
                     external: true,
                 },
             ]
