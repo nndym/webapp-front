@@ -1,9 +1,15 @@
 import axios from "axios";
 
 export function getStrapiUrl(path = ""){
-    return `${
-        process.env.BACKEND_BASE_URL || "https://api.nndym.org"
-    }${path}`;
+    if(process.env.NODE_ENV === "development"){
+        return `${
+            "http://localhost:1337"
+        }${path}`;
+    } else {
+        return `${
+            process.env.BACKEND_BASE_URL || "https://api.nndym.org"
+        }${path}`;
+    }
 }
 
 const api = axios.create({

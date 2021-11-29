@@ -1,6 +1,8 @@
 import PageHeader from '@components/Header/Page'
 import MainLayout from '@components/Layout/Main'
 import Navigation from '@components/Navigation'
+import PageContainer from '@components/Page/Container'
+import TeamOverview from '@components/Team/Overview'
 import api from 'lib/api'
 import Head from 'next/head'
 import React from 'react'
@@ -35,6 +37,11 @@ function Country({country, team_members}) {
                     half
                     cta={"The NNDYM team of " + getName() + "."}                    
                 />
+                <PageContainer>
+                    <TeamOverview
+                        members={team_members}
+                    />
+                </PageContainer>
             </MainLayout>
         </>
     )

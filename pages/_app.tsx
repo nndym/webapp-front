@@ -1,6 +1,6 @@
 import App from "next/app";
 import Head from "next/head";
-import { fetchAPI } from '../lib/api';
+import api from '../lib/api';
 import React, { useEffect } from 'react';
 import { getStrapiMedia } from '../lib/media';
 import '../styles/globals.css'
@@ -38,7 +38,12 @@ function MyApp({ Component, pageProps }) {
 
 MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
-  const global = await fetchAPI("/global");
+  let global;
+
+  await api.get('/global').then(res => {
+     global = res.data;
+  })
+
   return { ...appProps, pageProps: { global } };
 }
 
